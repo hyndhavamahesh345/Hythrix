@@ -10,6 +10,7 @@ export { default as CapabilityStrip } from "./components/sections/CapabilityStri
 export { default as IntroductionSection } from "./components/sections/IntroductionSection";
 export { default as ServicesSection } from "./components/sections/ServicesSection";
 export { default as FeaturedWorkSection } from "./components/sections/FeaturedWorkSection";
+export { default as LabsSection } from "./components/sections/LabsSection";
 export { default as ProductsSection } from "./components/sections/ProductsSection";
 export { default as ProcessSection } from "./components/sections/ProcessSection";
 export { default as TechnologySection } from "./components/sections/TechnologySection";

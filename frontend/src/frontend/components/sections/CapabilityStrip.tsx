@@ -2,12 +2,12 @@
 
 export default function CapabilityStrip() {
   const capabilities = [
-    { label: "DIGITAL PRODUCTS", dot: true },
-    { label: "AI AGENTS & RAG", dot: true },
+    { label: "CUSTOM WEB APPLICATIONS", dot: true },
+    { label: "AUTONOMOUS AI AGENTS & RAG", dot: true },
     { label: "WORKFLOW AUTOMATION", dot: true },
     { label: "HIGH-CONVERTING WEBSITES", dot: true },
     { label: "WHATSAPP & CRM AUTOMATION", dot: true },
-    { label: "PROPRIETARY IP: HYTHRIX LEADFLOW", dot: true },
+    { label: "HYTHRIX LABS: EXPERIMENTAL R&D", dot: true },
     { label: "API & MICROSERVICES", dot: true },
     { label: "GROWTH & ATTRIBUTION", dot: true },
   ];

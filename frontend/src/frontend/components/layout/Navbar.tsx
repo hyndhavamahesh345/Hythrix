@@ -28,7 +28,7 @@ export default function Navbar({ onStartProject }: NavbarProps) {
 
   const navLinks = [
     { name: "Services", href: "/services" },
-    { name: "Products", href: "/products" },
+    { name: "Labs", href: "/labs", badge: "R&D" },
     { name: "Process", href: "/process" },
     { name: "Contact", href: "/contact" },
   ];
@@ -56,13 +56,22 @@ export default function Navbar({ onStartProject }: NavbarProps) {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`px-3.5 py-1.5 text-xs lg:text-sm font-medium rounded-full transition-all duration-200 ${
+                  className={`px-3.5 py-1.5 text-xs lg:text-sm font-medium rounded-full transition-all duration-200 flex items-center gap-1.5 ${
                     isActive
                       ? "bg-slate-900 text-white shadow-sm"
                       : "text-slate-600 hover:text-slate-950 hover:bg-slate-100"
                   }`}
                 >
-                  {link.name}
+                  <span>{link.name}</span>
+                  {link.badge && (
+                    <span
+                      className={`text-[9px] font-mono px-1.5 py-0.2 rounded-full font-bold uppercase ${
+                        isActive ? "bg-orange-500 text-white" : "bg-orange-100 text-orange-700"
+                      }`}
+                    >
+                      {link.badge}
+                    </span>
+                  )}
                 </Link>
               );
             })}
@@ -110,13 +119,24 @@ export default function Navbar({ onStartProject }: NavbarProps) {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-colors ${
+                  className={`px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-colors flex items-center justify-between ${
                     isActive
                       ? "bg-slate-900 text-white"
                       : "text-slate-700 hover:text-slate-950 hover:bg-slate-50"
                   }`}
                 >
-                  {link.name}
+                  <span>{link.name}</span>
+                  {link.badge && (
+                    <span
+                      className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full ${
+                        isActive
+                          ? "bg-orange-500 text-white"
+                          : "bg-orange-100 text-orange-700 border border-orange-200"
+                      }`}
+                    >
+                      {link.badge}
+                    </span>
+                  )}
                 </Link>
               );
             })}
