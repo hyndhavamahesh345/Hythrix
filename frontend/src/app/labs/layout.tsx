@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "HYTHRIX Labs | Experimental R&D, AI Prototypes & Scalable Architectures",
+  title: "Upcoming Capabilities & Labs | HYTHRIX",
   description:
-    "Explore HYTHRIX Labs: internal experimental engineering, multi-agent AI consensus loops, real-time edge state streaming, and next-generation systems.",
-  openGraph: {
-    title: "HYTHRIX Labs | Experimental R&D & AI Systems",
-    description:
-      "Explore HYTHRIX Labs: internal experimental engineering, multi-agent AI consensus loops, real-time edge state streaming, and next-generation systems.",
-  },
+    "Explore upcoming digital products, automated workflows, and software solutions currently in development at HYTHRIX.",
 };
 
 export default function LabsLayout({
@@ -16,5 +11,5 @@ export default function LabsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return children;
 }
