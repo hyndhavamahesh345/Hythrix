@@ -89,21 +89,21 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-slate-50/60 relative scroll-mt-24">
+    <section id="contact" className="py-14 sm:py-24 bg-slate-50/60 relative scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left Column: Direct Consultation Info */}
           <div className="lg:col-span-5">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/25 bg-orange-50 text-[11px] font-mono text-orange-700 font-semibold uppercase tracking-wider mb-4">
               START A PROJECT
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight mb-6">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight mb-4 sm:mb-6">
               Let&apos;s Build Something{" "}
               <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
                 Exceptional.
               </span>
             </h2>
-            <p className="text-base text-slate-600 leading-relaxed mb-8">
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6 sm:mb-8">
               Tell us about your project, timeline, and current operational constraints. We review every submission with a technical architect and reply within 24 hours.
             </p>
 
@@ -148,7 +148,7 @@ export default function ContactSection() {
 
           {/* Right Column: Clean Contact Form */}
           <div className="lg:col-span-7">
-            <div className="rounded-3xl border border-slate-200/90 bg-white p-8 sm:p-10 shadow-xl shadow-slate-200/50">
+            <div className="rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-8 md:p-10 shadow-xl shadow-slate-200/50">
               {submitted ? (
                 <div className="text-center py-12 space-y-4 animate-in fade-in duration-300">
                   <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center mx-auto">

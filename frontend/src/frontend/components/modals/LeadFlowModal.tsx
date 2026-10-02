@@ -44,28 +44,28 @@ export default function LeadFlowModal({ isOpen, onClose, onStartProject }: LeadF
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-3xl rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-200">
+      <div className="relative w-full max-w-3xl rounded-2xl sm:rounded-3xl border border-slate-200 bg-white p-4 sm:p-8 shadow-2xl max-h-[92vh] overflow-y-auto">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-lg text-slate-400 hover:text-slate-900 hover:bg-slate-100 transition-colors"
+          className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2 rounded-lg text-slate-400 hover:text-slate-900 hover:bg-slate-100 transition-colors"
           aria-label="Close Modal"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Modal Header */}
-        <div className="mb-6">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="text-[11px] font-mono px-2.5 py-1 rounded bg-orange-50 text-orange-700 border border-orange-200 font-semibold uppercase">
+        <div className="mb-5 sm:mb-6 pr-8">
+          <div className="flex flex-wrap items-center gap-2 mb-2">
+            <span className="text-[10px] sm:text-[11px] font-mono px-2 py-0.5 rounded bg-orange-50 text-orange-700 border border-orange-200 font-semibold uppercase">
               A HYTHRIX PRODUCT
             </span>
-            <span className="text-[11px] font-mono text-slate-500">
+            <span className="text-[10px] sm:text-[11px] font-mono text-slate-500">
               REAL ESTATE LEAD AUTOMATION
             </span>
           </div>
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-950">
+          <h3 className="text-xl sm:text-3xl font-extrabold text-slate-950">
             HYTHRIX LeadFlow Engine
           </h3>
           <p className="text-xs sm:text-sm text-slate-600 mt-1">
@@ -74,39 +74,42 @@ export default function LeadFlowModal({ isOpen, onClose, onStartProject }: LeadF
         </div>
 
         {/* Modal Navigation Tabs */}
-        <div className="flex gap-2 p-1.5 rounded-xl bg-slate-100 border border-slate-200 mb-6">
+        <div className="grid grid-cols-3 gap-1 sm:gap-2 p-1 sm:p-1.5 rounded-xl bg-slate-100 border border-slate-200 mb-5 sm:mb-6">
           <button
             onClick={() => setActiveTab("whatsapp")}
-            className={`flex-1 py-2 px-3 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-2 ${
+            className={`py-2 px-1.5 sm:px-3 rounded-lg text-[11px] sm:text-xs font-semibold transition-all flex items-center justify-center gap-1.5 sm:gap-2 ${
               activeTab === "whatsapp"
                 ? "bg-white text-slate-950 border border-slate-200 shadow-sm"
                 : "text-slate-600 hover:text-slate-950"
             }`}
           >
-            <Phone className="w-3.5 h-3.5 text-emerald-600" />
-            <span>WhatsApp Outreach Bot</span>
+            <Phone className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+            <span className="hidden sm:inline">WhatsApp Outreach Bot</span>
+            <span className="sm:hidden">WhatsApp</span>
           </button>
           <button
             onClick={() => setActiveTab("pipeline")}
-            className={`flex-1 py-2 px-3 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-2 ${
+            className={`py-2 px-1.5 sm:px-3 rounded-lg text-[11px] sm:text-xs font-semibold transition-all flex items-center justify-center gap-1.5 sm:gap-2 ${
               activeTab === "pipeline"
                 ? "bg-white text-slate-950 border border-slate-200 shadow-sm"
                 : "text-slate-600 hover:text-slate-950"
             }`}
           >
-            <Activity className="w-3.5 h-3.5 text-orange-600" />
-            <span>AI Scoring & Triage</span>
+            <Activity className="w-3.5 h-3.5 text-orange-600 shrink-0" />
+            <span className="hidden sm:inline">AI Scoring & Triage</span>
+            <span className="sm:hidden">AI Scoring</span>
           </button>
           <button
             onClick={() => setActiveTab("crm")}
-            className={`flex-1 py-2 px-3 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-2 ${
+            className={`py-2 px-1.5 sm:px-3 rounded-lg text-[11px] sm:text-xs font-semibold transition-all flex items-center justify-center gap-1.5 sm:gap-2 ${
               activeTab === "crm"
                 ? "bg-white text-slate-950 border border-slate-200 shadow-sm"
                 : "text-slate-600 hover:text-slate-950"
             }`}
           >
-            <Database className="w-3.5 h-3.5 text-blue-600" />
-            <span>CRM & Dispatch</span>
+            <Database className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+            <span className="hidden sm:inline">CRM & Dispatch</span>
+            <span className="sm:hidden">CRM Sync</span>
           </button>
         </div>
 

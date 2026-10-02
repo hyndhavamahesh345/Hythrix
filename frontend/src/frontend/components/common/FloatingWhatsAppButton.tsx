@@ -9,7 +9,7 @@ export default function FloatingWhatsAppButton() {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${defaultMessage}`;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-center group">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center group">
       {/* Tooltip on hover */}
       <div className="mr-3 hidden md:flex items-center px-3.5 py-1.5 rounded-full bg-slate-900/90 text-white text-xs font-medium shadow-lg backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none translate-x-2 group-hover:translate-x-0">
         <span>Chat on WhatsApp</span>
@@ -21,7 +21,7 @@ export default function FloatingWhatsAppButton() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with HYTHRIX on WhatsApp"
-        className="relative flex items-center justify-center w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/35 hover:shadow-emerald-500/50 hover:scale-105 active:scale-95 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-emerald-300"
+        className="relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/35 hover:shadow-emerald-500/50 hover:scale-105 active:scale-95 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-emerald-300"
       >
         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-30"></span>
         <svg

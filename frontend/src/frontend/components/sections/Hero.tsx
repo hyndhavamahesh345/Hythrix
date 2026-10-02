@@ -94,7 +94,7 @@ export default function Hero({ onStartProject }: HeroProps) {
   const currentLayerData = layers.find((l) => l.id === activeLayer)!;
 
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-[#ffffff]">
+    <section className="relative pt-28 pb-14 sm:pt-32 sm:pb-20 md:pt-40 md:pb-28 overflow-hidden bg-[#ffffff]">
       {/* Background ambient lighting */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-gradient-to-b from-orange-500/10 via-amber-500/5 to-transparent blur-3xl pointer-events-none -z-10" />
       <div className="absolute top-36 -left-32 w-96 h-96 bg-blue-500/5 blur-3xl pointer-events-none -z-10" />
@@ -104,22 +104,22 @@ export default function Hero({ onStartProject }: HeroProps) {
       <div className="absolute inset-0 bg-grid-pattern opacity-60 pointer-events-none -z-10 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* Left Column: Positioning, Headline & CTAs */}
           <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
             {/* Small Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange-500/25 bg-orange-50/80 backdrop-blur-md mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border border-orange-500/25 bg-orange-50/80 backdrop-blur-md mb-5 sm:mb-6">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
               </span>
-              <span className="text-[11px] sm:text-xs font-mono font-semibold tracking-wider text-orange-700 uppercase">
+              <span className="text-[10px] sm:text-xs font-mono font-semibold tracking-wider text-orange-700 uppercase">
                 DIGITAL PRODUCTS • AI & AUTOMATION • GROWTH
               </span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-950 leading-[1.08] mb-6">
+            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-slate-950 leading-[1.1] mb-5 sm:mb-6">
               BUILD.{" "}
               <span className="bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 bg-clip-text text-transparent">
                 AUTOMATE.
@@ -128,17 +128,17 @@ export default function Hero({ onStartProject }: HeroProps) {
             </h1>
 
             {/* Primary Supporting Copy */}
-            <p className="text-lg sm:text-xl font-medium text-slate-800 max-w-2xl leading-relaxed mb-4">
+            <p className="text-base sm:text-xl font-medium text-slate-800 max-w-2xl leading-relaxed mb-3 sm:mb-4">
               We build digital products, intelligent systems, and growth solutions for modern businesses.
             </p>
 
             {/* Secondary Supporting Copy */}
-            <p className="text-sm sm:text-base text-slate-600 max-w-2xl leading-relaxed mb-8">
+            <p className="text-xs sm:text-base text-slate-600 max-w-2xl leading-relaxed mb-6 sm:mb-8">
               From websites and software to AI automation and growth systems, HYTHRIX helps businesses turn ideas into working technology.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
               <button
                 onClick={() => {
                   if (onStartProject) {
@@ -147,7 +147,7 @@ export default function Hero({ onStartProject }: HeroProps) {
                     router.push("/contact");
                   }
                 }}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full text-sm sm:text-base font-semibold text-white bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 hover:from-orange-500 hover:to-amber-400 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/35 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-semibold text-white bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 hover:from-orange-500 hover:to-amber-400 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/35 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
               >
                 <span>Start a Project</span>
                 <ArrowRight className="w-4 h-4" />
@@ -155,7 +155,7 @@ export default function Hero({ onStartProject }: HeroProps) {
 
               <Link
                 href="/services"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-sm sm:text-base font-semibold text-slate-700 hover:text-slate-950 bg-white hover:bg-slate-50 border border-slate-200 shadow-sm transition-all duration-200"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-semibold text-slate-700 hover:text-slate-950 bg-white hover:bg-slate-50 border border-slate-200 shadow-sm transition-all duration-200"
               >
                 <span>Explore Capabilities</span>
                 <ArrowUpRight className="w-4 h-4 text-slate-500" />
@@ -163,27 +163,27 @@ export default function Hero({ onStartProject }: HeroProps) {
             </div>
 
             {/* Key Trust Signals */}
-            <div className="grid grid-cols-3 gap-6 pt-10 mt-10 border-t border-slate-200 w-full max-w-xl">
+            <div className="grid grid-cols-3 gap-2 sm:gap-6 pt-6 sm:pt-10 mt-6 sm:mt-10 border-t border-slate-200 w-full max-w-xl">
               <div>
-                <div className="text-xs font-mono text-orange-600 mb-1 font-semibold uppercase tracking-wider">
+                <div className="text-[10px] sm:text-xs font-mono text-orange-600 mb-0.5 sm:mb-1 font-semibold uppercase tracking-wider">
                   01 // PRODUCT
                 </div>
-                <div className="text-sm font-semibold text-slate-900">Full-Stack Builds</div>
-                <div className="text-xs text-slate-500">Web, SaaS, APIs</div>
+                <div className="text-xs sm:text-sm font-semibold text-slate-900 leading-snug">Full-Stack Builds</div>
+                <div className="text-[10px] sm:text-xs text-slate-500">Web, SaaS, APIs</div>
               </div>
               <div>
-                <div className="text-xs font-mono text-amber-600 mb-1 font-semibold uppercase tracking-wider">
+                <div className="text-[10px] sm:text-xs font-mono text-amber-600 mb-0.5 sm:mb-1 font-semibold uppercase tracking-wider">
                   02 // INTELLIGENCE
                 </div>
-                <div className="text-sm font-semibold text-slate-900">AI Workflows</div>
-                <div className="text-xs text-slate-500">Agents & Automation</div>
+                <div className="text-xs sm:text-sm font-semibold text-slate-900 leading-snug">AI Workflows</div>
+                <div className="text-[10px] sm:text-xs text-slate-500">Agents & Auto</div>
               </div>
               <div>
-                <div className="text-xs font-mono text-emerald-600 mb-1 font-semibold uppercase tracking-wider">
+                <div className="text-[10px] sm:text-xs font-mono text-emerald-600 mb-0.5 sm:mb-1 font-semibold uppercase tracking-wider">
                   03 // SCALE
                 </div>
-                <div className="text-sm font-semibold text-slate-900">Growth Systems</div>
-                <div className="text-xs text-slate-500">SEO & Conversion</div>
+                <div className="text-xs sm:text-sm font-semibold text-slate-900 leading-snug">Growth Systems</div>
+                <div className="text-[10px] sm:text-xs text-slate-500">SEO & Growth</div>
               </div>
             </div>
           </div>

@@ -7,7 +7,9 @@ interface FooterProps {
   onOpenDemo?: () => void;
 }
 
-export default function Footer(_props?: FooterProps) {
+export default function Footer({ onStartProject, onOpenDemo }: FooterProps = {}) {
+  void onStartProject;
+  void onOpenDemo;
   return (
     <footer className="border-t border-slate-200 bg-white text-slate-600 py-12 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -25,13 +27,13 @@ export default function Footer(_props?: FooterProps) {
         </div>
 
         {/* Bottom Copyright */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3 text-center sm:text-left">
           <div>
             &copy; 2026 HYTHRIX. All rights reserved.
           </div>
-          <div className="flex items-center gap-6 font-mono text-[11px]">
+          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-6 font-mono text-[10px] sm:text-[11px]">
             <span>ENGINEERED WITH NEXT.JS & TYPESCRIPT</span>
-            <span className="h-1 w-1 rounded-full bg-slate-300" />
+            <span className="hidden sm:inline-block h-1 w-1 rounded-full bg-slate-300" />
             <span>ZERO CLIENT LEAKAGE</span>
           </div>
         </div>

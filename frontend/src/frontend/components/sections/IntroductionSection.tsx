@@ -73,33 +73,33 @@ export default function IntroductionSection({ onStartProject }: IntroductionSect
   ];
 
   return (
-    <section id="about" className="py-24 bg-[#ffffff] relative overflow-hidden scroll-mt-24">
+    <section id="about" className="py-14 sm:py-24 bg-[#ffffff] relative overflow-hidden scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-200 bg-slate-100 text-[11px] font-mono text-slate-700 font-semibold uppercase tracking-wider mb-4">
+        <div className="max-w-3xl mb-10 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-200 bg-slate-100 text-[10px] sm:text-[11px] font-mono text-slate-700 font-semibold uppercase tracking-wider mb-3 sm:mb-4">
             <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
             THE HYTHRIX METHODOLOGY
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-[1.15] mb-5">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-[1.15] mb-4 sm:mb-5">
             Technology Built Around{" "}
             <span className="bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 bg-clip-text text-transparent">
               Business Outcomes.
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+          <p className="text-sm sm:text-lg text-slate-600 leading-relaxed">
             We don&apos;t build technology just for the sake of technology. We build digital products, automate repetitive work, and create systems that help businesses operate and grow better.
           </p>
         </div>
 
         {/* Three Large Pillar Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-8">
           {cards.map((card) => {
             const Icon = card.icon;
             return (
               <div
                 key={card.pillar}
-                className={`group relative rounded-2xl border border-slate-200/90 bg-white hover:bg-slate-50/50 p-7 transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-xl hover:shadow-slate-200/60 hover:-translate-y-1 ${card.accentBorder}`}
+                className={`group relative rounded-2xl border border-slate-200/90 bg-white hover:bg-slate-50/50 p-5 sm:p-7 transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-xl hover:shadow-slate-200/60 hover:-translate-y-1 ${card.accentBorder}`}
               >
                 {/* Top accent gradient line */}
                 <div className={`absolute top-0 left-6 right-6 h-[2px] ${card.accentBar} opacity-60 group-hover:opacity-100 transition-opacity`} />

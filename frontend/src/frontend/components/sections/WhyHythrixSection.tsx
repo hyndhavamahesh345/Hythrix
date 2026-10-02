@@ -39,32 +39,32 @@ export default function WhyHythrixSection() {
   ];
 
   return (
-    <section className="py-24 bg-slate-50/60 relative">
+    <section className="py-14 sm:py-24 bg-slate-50/60 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/25 bg-orange-50 text-[11px] font-mono text-orange-700 font-semibold uppercase tracking-wider mb-4">
+        <div className="max-w-3xl mb-10 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/25 bg-orange-50 text-[10px] sm:text-[11px] font-mono text-orange-700 font-semibold uppercase tracking-wider mb-3 sm:mb-4">
             THE HYTHRIX ADVANTAGE
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
             More Than a{" "}
             <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
               Development Agency.
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed">
+          <p className="text-sm sm:text-lg text-slate-600 mt-3 sm:mt-4 leading-relaxed">
             We partner with forward-thinking operators as a high-velocity product and automation team—building systems that last, scale, and generate measurable enterprise value.
           </p>
         </div>
 
         {/* 4 Points Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {points.map((pt, idx) => {
             const Icon = pt.icon;
             return (
               <div
                 key={idx}
-                className="group rounded-2xl border border-slate-200/90 bg-white p-8 hover:border-orange-500/40 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-slate-200/60"
+                className="group rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-8 hover:border-orange-500/40 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-slate-200/60"
               >
                 <div className="flex items-center justify-between mb-4">
                   <div className="p-3 rounded-xl bg-orange-50 text-orange-600 border border-orange-200/60">

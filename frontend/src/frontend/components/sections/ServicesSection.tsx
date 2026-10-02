@@ -185,27 +185,27 @@ export default function ServicesSection({ onStartProject }: ServicesSectionProps
     activeTab === "all" ? services : services.filter((s) => s.category === activeTab);
 
   return (
-    <section id="services" className="py-24 bg-slate-50/60 relative scroll-mt-24">
+    <section id="services" className="py-14 sm:py-24 bg-slate-50/60 relative scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-6">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/25 bg-orange-50 text-[11px] font-mono text-orange-700 font-semibold uppercase tracking-wider mb-4">
               CAPABILITIES & ARCHITECTURE
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
               What We Build.
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed">
+            <p className="text-sm sm:text-lg text-slate-600 mt-3 sm:mt-4 leading-relaxed">
               We specialize in engineering robust <span className="text-slate-900 font-semibold">Digital Products</span> and intelligent <span className="text-orange-600 font-semibold">AI & Automation</span> workflows, backed by measurable <span className="text-emerald-600 font-semibold">Growth Systems</span>.
             </p>
           </div>
 
           {/* Interactive Filter Tabs */}
-          <div className="flex flex-wrap gap-2 p-1.5 rounded-xl bg-slate-200/70 border border-slate-300/70 self-start md:self-auto">
+          <div className="flex max-w-full overflow-x-auto no-scrollbar sm:flex-wrap gap-1.5 sm:gap-2 p-1.5 rounded-xl bg-slate-200/70 border border-slate-300/70 self-start md:self-auto shrink-0">
             <button
               onClick={() => setActiveTab("all")}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              className={`px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap shrink-0 transition-all ${
                 activeTab === "all"
                   ? "bg-white text-slate-900 shadow-sm border border-slate-200"
                   : "text-slate-600 hover:text-slate-950"
@@ -215,7 +215,7 @@ export default function ServicesSection({ onStartProject }: ServicesSectionProps
             </button>
             <button
               onClick={() => setActiveTab("digital-products")}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              className={`px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap shrink-0 transition-all ${
                 activeTab === "digital-products"
                   ? "bg-blue-600 text-white shadow-sm"
                   : "text-slate-600 hover:text-slate-950"
@@ -225,7 +225,7 @@ export default function ServicesSection({ onStartProject }: ServicesSectionProps
             </button>
             <button
               onClick={() => setActiveTab("ai-automation")}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              className={`px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap shrink-0 transition-all ${
                 activeTab === "ai-automation"
                   ? "bg-orange-600 text-white shadow-sm"
                   : "text-slate-600 hover:text-slate-950"
@@ -235,7 +235,7 @@ export default function ServicesSection({ onStartProject }: ServicesSectionProps
             </button>
             <button
               onClick={() => setActiveTab("growth")}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              className={`px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap shrink-0 transition-all ${
                 activeTab === "growth"
                   ? "bg-emerald-600 text-white shadow-sm"
                   : "text-slate-600 hover:text-slate-950"
@@ -254,7 +254,7 @@ export default function ServicesSection({ onStartProject }: ServicesSectionProps
             return (
               <div
                 key={index}
-                className={`group relative rounded-2xl border bg-white p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl hover:shadow-slate-200/70 ${
+                className={`group relative rounded-2xl border bg-white p-5 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl hover:shadow-slate-200/70 ${
                   service.accentBorder
                 } ${isFeatured ? "ring-1 ring-slate-200" : ""}`}
               >

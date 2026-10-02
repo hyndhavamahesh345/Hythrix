@@ -37,8 +37,8 @@ export default function Navbar({ onStartProject }: NavbarProps) {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/92 backdrop-blur-md border-b border-slate-200/90 py-3.5 shadow-sm"
-          : "bg-white/80 backdrop-blur-md py-4 border-b border-slate-200/60"
+          ? "bg-white/95 backdrop-blur-md border-b border-slate-200/90 py-3 shadow-sm"
+          : "bg-white/90 backdrop-blur-md py-3.5 sm:py-4 border-b border-slate-200/60"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -90,7 +90,7 @@ export default function Navbar({ onStartProject }: NavbarProps) {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-700 hover:text-slate-950 rounded-lg border border-slate-200 bg-white shadow-sm"
+              className="p-2.5 text-slate-700 hover:text-slate-950 rounded-xl border border-slate-200 bg-white shadow-sm active:bg-slate-50"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -101,8 +101,8 @@ export default function Navbar({ onStartProject }: NavbarProps) {
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-slate-200 bg-white/98 backdrop-blur-xl px-4 pt-4 pb-6 mt-3 shadow-xl animate-in slide-in-from-top-4 duration-200">
-          <div className="flex flex-col space-y-1.5">
+        <div className="md:hidden border-b border-slate-200 bg-white/98 backdrop-blur-xl px-4 pt-3 pb-5 mt-2 shadow-xl animate-in slide-in-from-top-4 duration-200">
+          <div className="flex flex-col space-y-1">
             {navLinks.map((link) => {
               const isActive = pathname === link.href || (link.href !== "/" && pathname?.startsWith(link.href));
               return (
@@ -110,7 +110,7 @@ export default function Navbar({ onStartProject }: NavbarProps) {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                  className={`px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-colors ${
                     isActive
                       ? "bg-slate-900 text-white"
                       : "text-slate-700 hover:text-slate-950 hover:bg-slate-50"
@@ -121,7 +121,7 @@ export default function Navbar({ onStartProject }: NavbarProps) {
               );
             })}
 
-            <div className="pt-3 border-t border-slate-200 flex flex-col gap-2.5">
+            <div className="pt-2.5 border-t border-slate-100 flex flex-col gap-2">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
@@ -131,7 +131,7 @@ export default function Navbar({ onStartProject }: NavbarProps) {
                     router.push("/contact");
                   }
                 }}
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-orange-600 to-amber-500 rounded-lg shadow-lg shadow-orange-500/20"
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold text-white bg-gradient-to-r from-orange-600 to-amber-500 rounded-xl shadow-lg shadow-orange-500/20 active:opacity-95"
               >
                 <span>Start a Project</span>
                 <ArrowUpRight className="w-4 h-4" />

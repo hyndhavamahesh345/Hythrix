@@ -49,33 +49,33 @@ export default function TargetCustomersSection() {
   ];
 
   return (
-    <section className="py-24 bg-[#ffffff] relative">
+    <section className="py-14 sm:py-24 bg-[#ffffff] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-200 bg-slate-100 text-[11px] font-mono text-slate-700 font-semibold uppercase tracking-wider mb-4">
+        <div className="max-w-3xl mb-10 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-200 bg-slate-100 text-[10px] sm:text-[11px] font-mono text-slate-700 font-semibold uppercase tracking-wider mb-3 sm:mb-4">
             <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
             ORGANIZATIONAL FIT
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
             Built for{" "}
             <span className="bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent">
               Ambitious Businesses.
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed">
+          <p className="text-sm sm:text-lg text-slate-600 mt-3 sm:mt-4 leading-relaxed">
             Whether launching a breakthrough digital product or removing friction from a high-volume operation, we build the technical foundation you need to scale.
           </p>
         </div>
 
         {/* 6 Target Profiles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {segments.map((seg, idx) => {
             const Icon = seg.icon;
             return (
               <div
                 key={idx}
-                className="rounded-2xl border border-slate-200/90 bg-white p-7 shadow-sm hover:shadow-xl hover:shadow-slate-200/60 hover:border-slate-300 transition-all duration-200 flex flex-col justify-between"
+                className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-7 shadow-sm hover:shadow-xl hover:shadow-slate-200/60 hover:border-slate-300 transition-all duration-200 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center gap-3 mb-4">
