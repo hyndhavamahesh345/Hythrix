@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Upcoming Capabilities & Labs | HYTHRIX",
+  title: "HYTHRIX Labs — Coming Soon",
   description:
-    "Explore upcoming digital products, automated workflows, and software solutions currently in development at HYTHRIX.",
+    "HYTHRIX Labs: proprietary digital products, automated workflows, and software solutions currently in development.",
 };
 
 export default function LabsLayout({
