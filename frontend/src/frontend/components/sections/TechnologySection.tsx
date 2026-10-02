@@ -41,11 +41,11 @@ export default function TechnologySection() {
       accent: "text-orange-600",
       description: "Production LLM pipelines, autonomous tool agents, and computer vision.",
       items: [
-        { name: "OpenAI Models", purpose: "High-reasoning agent workflows" },
-        { name: "Gemini", purpose: "Multimodal video & long-context parsing" },
-        { name: "Open-Source LLMs", purpose: "On-premise & cost-optimized inference" },
-        { name: "RAG & Vector Search", purpose: "Proprietary domain knowledge lookup" },
-        { name: "Computer Vision", purpose: "Automated spatial & object recognition" },
+        { name: "OpenAI Models", purpose: "Reasoning and conversational workflows" },
+        { name: "Gemini", purpose: "Document parsing and multimodal context" },
+        { name: "Open-Source Models", purpose: "Private, cost-optimized deployment" },
+        { name: "Intelligent Document Search", purpose: "Knowledge lookup across your company documents" },
+        { name: "Computer Vision", purpose: "Automated document and image recognition" },
       ],
     },
     {
@@ -54,10 +54,10 @@ export default function TechnologySection() {
       accent: "text-amber-600",
       description: "Event-driven workflow engines, messaging channels, and API brokers.",
       items: [
-        { name: "n8n", purpose: "Complex self-hosted workflow automation" },
-        { name: "Webhooks", purpose: "Sub-second event trigger dispatch" },
-        { name: "WhatsApp Cloud API", purpose: "Official conversational outreach" },
-        { name: "REST APIs", purpose: "Interoperable CRM & software glue" },
+        { name: "n8n", purpose: "Complex workflow and process automation" },
+        { name: "Webhooks & Events", purpose: "Instant real-time data sync between your tools" },
+        { name: "WhatsApp Cloud API", purpose: "Official customer messaging & qualification" },
+        { name: "REST APIs", purpose: "Interoperable CRM & software connections" },
       ],
     },
     {

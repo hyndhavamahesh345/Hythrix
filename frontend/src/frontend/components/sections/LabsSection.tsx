@@ -53,7 +53,7 @@ export default function LabsSection({ onStartProject }: LabsSectionProps) {
     {
       id: "exp-02",
       code: "LAB-02",
-      title: "OmniSync: Sub-50ms Universal State Mesh",
+      title: "OmniSync: Real-Time Universal State Mesh",
       category: "DISTRIBUTED SYSTEMS",
       status: "BENCHMARKING",
       statusColor: "amber",
@@ -63,20 +63,20 @@ export default function LabsSection({ onStartProject }: LabsSectionProps) {
       problem: "Multi-tenant websocket latency spikes and concurrency race conditions.",
       solution: "Conflict-free Replicated Data Types (CRDTs) over distributed edge WebSockets.",
       metrics: [
-        { label: "P99 Edge Latency", value: "34ms" },
-        { label: "Payload Overhead", value: "-68%" },
-        { label: "Concurrent Mesh Nodes", value: "25,000+" },
-        { label: "Conflict Rate", value: "0.00%" },
+        { label: "State Synchronization", value: "Real-Time" },
+        { label: "Payload Overhead", value: "Compressed" },
+        { label: "Concurrent Mesh Nodes", value: "Scalable" },
+        { label: "Conflict Resolution", value: "Deterministic" },
       ],
       stack: ["Rust", "WebSockets", "CRDTs", "Cloudflare Workers", "protobuf"],
-      telemetryLog: `[MESH_STREAM] Node connected: us-east.edge (peer latency 18ms)
-[DELTA_BROADCAST] Synced 1,480 mutation operations across 12 edge regions.
-[CONFLICT_DETECTION] CRDT resolution applied; deterministic vector clock match.
-[BANDWIDTH] 1.2 KB compressed wire transfer for 500 state updates.
-[HEARTBEAT] P99 latency: 34.2ms. All regional caches verified warm.`,
+      telemetryLog: `[MESH_STREAM] Node connected: us-east.edge (peer connection verified)
+[DELTA_BROADCAST] Synced 1,480 mutation operations across distributed edge nodes.
+[CONFLICT_DETECTION] CRDT resolution applied; deterministic state match.
+[BANDWIDTH] Compressed wire transfer for multi-user state updates.
+[HEARTBEAT] All regional edge caches verified active.`,
       nodes: [
         { name: "Client Mutation", role: "Local Optimistic UI" },
-        { name: "Edge Mesh", role: "Sub-20ms Broker" },
+        { name: "Edge Mesh", role: "Real-Time Broker" },
         { name: "CRDT Arbiter", role: "Vector Clocks" },
         { name: "Regional Replicas", role: "Bi-directional Sync" },
         { name: "Cold Persistence", role: "Event Store" },
@@ -89,23 +89,23 @@ export default function LabsSection({ onStartProject }: LabsSectionProps) {
       category: "KNOWLEDGE RETRIEVAL",
       status: "PROTOTYPE",
       statusColor: "blue",
-      badge: "MULTIMODAL RAG",
+      badge: "DOCUMENT INTELLIGENCE",
       summary:
         "Layout-aware semantic retrieval engine that parses complex multi-column PDFs, tables, architectural drawings, and legal contracts without losing hierarchical context.",
-      problem: "Standard RAG chunking ruins tables, footnotes, and spatial layout data.",
+      problem: "Standard text extractors lose formatting in tables, financial footnotes, and spatial layouts.",
       solution: "2D spatial bounding-box embeddings coupled with hybrid dense-sparse vector reranking.",
       metrics: [
-        { label: "Table Extraction", value: "98.8%" },
-        { label: "Retrieval Recall", value: "99.2%" },
-        { label: "Index Generation", value: "1.4s/doc" },
-        { label: "False Positive Rate", value: "<0.1%" },
+        { label: "Table Extraction", value: "High-Fidelity" },
+        { label: "Context Preservation", value: "Hierarchical" },
+        { label: "Parsing Architecture", value: "Layout-Aware" },
+        { label: "Accuracy Threshold", value: "Verified" },
       ],
       stack: ["PyTorch", "Milvus", "LayoutLM", "TypeScript", "FastAPI"],
-      telemetryLog: `[DOCUMENT_INGEST] Processing 84-page commercial lease contract...
-[SPATIAL_PARSER] Detected 14 multi-row financial tables with custom headers.
+      telemetryLog: `[DOCUMENT_INGEST] Processing commercial lease contract...
+[SPATIAL_PARSER] Detected multi-row financial tables with custom headers.
 [EMBEDDING] Hybrid dense-sparse vectors mapped with spatial coordinates.
-[QUERY_MATCH] Precision score 0.992 on clause 14.b nested footnote.
-[RERANKER] Cross-encoder validated top-1 chunk relevance in 86ms.`,
+[QUERY_MATCH] Precision match on nested footnote and clause terms.
+[RERANKER] Semantic relevance confirmed across layout sections.`,
       nodes: [
         { name: "Document Parser", role: "Spatial Layout OCR" },
         { name: "Chunk Graph", role: "Contextual Hierarchy" },
@@ -127,10 +127,10 @@ export default function LabsSection({ onStartProject }: LabsSectionProps) {
       problem: "Post-deployment regressions that pass standard unit tests but degrade production SLAs.",
       solution: "Real-time canary telemetry analytics with automated eBPF runtime intervention.",
       metrics: [
-        { label: "Mean Time to Recovery", value: "<3.2s" },
-        { label: "Degradation Detection", value: "97.6%" },
-        { label: "Human Escalation", value: "<2%" },
-        { label: "SLA Guarantee", value: "99.999%" },
+        { label: "Recovery Mode", value: "Automated Rollback" },
+        { label: "Degradation Detection", value: "Proactive" },
+        { label: "Human Escalation", value: "Minimized" },
+        { label: "High Availability", value: "Failover Ready" },
       ],
       stack: ["Go", "eBPF", "Kubernetes", "Prometheus", "Docker"],
       telemetryLog: `[WATCHDOG_DAEMON] Monitoring 48 production container pods...

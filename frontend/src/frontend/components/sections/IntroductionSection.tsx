@@ -41,14 +41,14 @@ export default function IntroductionSection({ onStartProject }: IntroductionSect
       badgeColor: "bg-orange-50 text-orange-700 border-orange-200",
       accentBar: "bg-gradient-to-r from-orange-500 to-amber-500",
       items: [
-        "Autonomous AI Agents & RAG",
+        "Custom AI Assistants & Automation",
         "WhatsApp Business Automation",
         "Intelligent Lead Qualification",
         "CRM & Pipeline Synchronization",
         "Automated Customer Support",
         "Contract & Document Processing",
       ],
-      deliverable: "Zero-latency workflows operating 24/7 without manual bottlenecks.",
+      deliverable: "Reliable automated workflows that handle routine operations efficiently.",
     },
     {
       pillar: "GROW",

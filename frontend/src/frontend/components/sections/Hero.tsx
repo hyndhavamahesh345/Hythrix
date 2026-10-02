@@ -34,14 +34,30 @@ export default function Hero({ onStartProject }: HeroProps) {
       badgeBg: "bg-blue-50 border-blue-200 text-blue-700",
       summary: "High-performance websites, scalable web applications, and resilient SaaS architectures.",
       capabilities: [
-        { label: "Web Applications & SaaS", status: "Active 99.98% uptime" },
-        { label: "High-Speed Business Sites", status: "Sub-second TTFB" },
-        { label: "APIs & Custom Microservices", status: "Zero-latency dispatch" },
-        { label: "Rapid MVPs & Scalable Core", status: "Production ready" },
+        {
+          label: "Web Applications & SaaS",
+          description: "Scalable applications built around your business requirements.",
+          status: "Custom Built",
+        },
+        {
+          label: "Business Websites & Landing Pages",
+          description: "Fast, modern web presences designed to build authority and convert visitors.",
+          status: "Optimized",
+        },
+        {
+          label: "Custom APIs & Integrations",
+          description: "Seamless data exchange between your CRM, database, and internal tools.",
+          status: "Connected",
+        },
+        {
+          label: "Rapid MVPs & Core Software",
+          description: "Turn your business concept into working, production-ready software.",
+          status: "Production Ready",
+        },
       ],
       telemetry: {
-        engine: "Next.js 16 + TypeScript",
-        latency: "18ms edge dispatch",
+        engine: "Modern Tech Stack • TypeScript",
+        latency: "Reliable & Scalable",
         integrity: "Strictly Typed • CI/CD Verified",
       },
     },
@@ -54,17 +70,33 @@ export default function Hero({ onStartProject }: HeroProps) {
       accentColor: "from-orange-500 to-amber-500",
       textColor: "text-orange-600",
       badgeBg: "bg-orange-50 border-orange-200 text-orange-700",
-      summary: "AI agents, automated lead qualification, WhatsApp dispatch, and headless CRM synchronization.",
+      summary: "AI assistants, automated lead qualification, WhatsApp messaging, and CRM synchronization.",
       capabilities: [
-        { label: "Autonomous AI Agents & RAG", status: "Stateful context engines" },
-        { label: "WhatsApp & Omnichannel Bots", status: "<45s response SLA" },
-        { label: "End-to-End CRM Workflows", status: "Automated routing" },
-        { label: "Document & Contract Intelligence", status: "Structured JSON parsing" },
+        {
+          label: "AI Assistants & Knowledge Bases",
+          description: "Intelligent assistants trained on your documents to answer customer questions.",
+          status: "Instant Answers",
+        },
+        {
+          label: "WhatsApp & Inbound Messaging",
+          description: "Engage prospective clients instantly on WhatsApp and qualify their interest.",
+          status: "Automated",
+        },
+        {
+          label: "CRM & Lead Pipeline Automation",
+          description: "Automatically route leads, update records, and notify your sales team.",
+          status: "Synchronized",
+        },
+        {
+          label: "Document & Invoice Processing",
+          description: "Extract structured data from invoices, contracts, and forms automatically.",
+          status: "Zero Data Entry",
+        },
       ],
       telemetry: {
-        engine: "Hybrid LLM + Event Webhooks",
-        latency: "Real-time dispatch",
-        integrity: "Audit-logged & SOC2 compliant",
+        engine: "Smart Workflows • Connected APIs",
+        latency: "Always-On Operations",
+        integrity: "Secure & Audit-Logged",
       },
     },
     {
@@ -78,15 +110,31 @@ export default function Hero({ onStartProject }: HeroProps) {
       badgeBg: "bg-emerald-50 border-emerald-200 text-emerald-700",
       summary: "High-intent lead generation, technical SEO, conversion-rate optimization, and revenue analytics.",
       capabilities: [
-        { label: "Technical & Programmatic SEO", status: "Indexation accelerated" },
-        { label: "High-Converting Landing Pages", status: "4.2x conversion baseline" },
-        { label: "Multi-Channel Lead Engines", status: "Qualified inbound pipeline" },
-        { label: "Unified Attribution Analytics", status: "End-to-end CAC/LTV tracking" },
+        {
+          label: "Search Engine Optimization (SEO)",
+          description: "Technical foundations so your business gets discovered by high-intent clients.",
+          status: "Organic Growth",
+        },
+        {
+          label: "High-Converting Landing Pages",
+          description: "Clear, persuasive page layouts designed specifically to capture enquiries.",
+          status: "Conversion Focused",
+        },
+        {
+          label: "Qualified Lead Generation",
+          description: "Structured intake funnels that filter and deliver serious business prospects.",
+          status: "Inbound Pipeline",
+        },
+        {
+          label: "Performance Analytics & Tracking",
+          description: "Clear attribution and conversion tracking to see exactly what drives ROI.",
+          status: "Transparent Data",
+        },
       ],
       telemetry: {
-        engine: "Real-time Telemetry & Data Pipelines",
-        latency: "Synchronous updates",
-        integrity: "Transparent attribution",
+        engine: "Growth Funnels • Live Reporting",
+        latency: "Measurable Results",
+        integrity: "Transparent Attribution",
       },
     },
   ];
@@ -200,12 +248,12 @@ export default function Hero({ onStartProject }: HeroProps) {
                     <div className="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
                   </div>
                   <span className="text-[11px] font-mono text-slate-500 pl-2">
-                    HYTHRIX // SYSTEM_TOPOLOGY.v1
+                    HYTHRIX // OPERATIONS_ARCHITECTURE
                   </span>
                 </div>
                 <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
                   <Activity className="w-3 h-3 animate-pulse" />
-                  <span>SYNCED</span>
+                  <span>ONLINE</span>
                 </div>
               </div>
 
@@ -268,13 +316,16 @@ export default function Hero({ onStartProject }: HeroProps) {
                   {currentLayerData.capabilities.map((cap, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center justify-between text-xs p-2 rounded-lg bg-white border border-slate-200/80"
+                      className="p-2.5 rounded-lg bg-white border border-slate-200/80 hover:border-slate-300 transition-colors"
                     >
-                      <span className="text-slate-800 font-medium">{cap.label}</span>
-                      <span className="font-mono text-[10px] text-slate-500 flex items-center gap-1">
-                        <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                        {cap.status}
-                      </span>
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-slate-900 font-semibold text-xs">{cap.label}</span>
+                        <span className="font-mono text-[10px] text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/60 flex items-center gap-1">
+                          <CheckCircle2 className="w-2.5 h-2.5 text-emerald-600" />
+                          {cap.status}
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-slate-500 leading-snug">{cap.description}</p>
                     </div>
                   ))}
                 </div>
@@ -293,7 +344,7 @@ export default function Hero({ onStartProject }: HeroProps) {
 
               {/* Connected Pipeline Flow Indicator */}
               <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-500">
-                <span>DATA PIPELINE:</span>
+                <span>BUSINESS PIPELINE:</span>
                 <div className="flex items-center gap-2">
                   <span className={activeLayer === "build" ? "text-orange-600 font-bold" : "text-slate-400"}>
                     BUILD

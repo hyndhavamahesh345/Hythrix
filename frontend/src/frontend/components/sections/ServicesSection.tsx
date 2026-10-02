@@ -87,19 +87,19 @@ export default function ServicesSection({ onStartProject }: ServicesSectionProps
       categoryName: "AI & Automation",
       badge: "FLAGSHIP CAPABILITY",
       pillar: "AUTOMATE",
-      title: "Autonomous AI Agents & RAG Systems",
+      title: "Intelligent AI Assistants & Knowledge Bases",
       description:
-        "Context-aware AI agents equipped with vector retrieval (RAG) that execute complex tasks, answer queries using proprietary knowledge bases, and resolve operations.",
+        "Custom AI assistants trained on your company's documents, data, and workflows to answer client questions, handle repetitive administrative tasks, and assist your team.",
       icon: Bot,
       accentBorder: "border-orange-200 hover:border-orange-400",
       tagColor: "text-orange-700 bg-orange-50 border-orange-200",
       capabilities: [
-        "Domain-Tuned RAG Knowledge Bases",
-        "Multi-Step Autonomous Tool Calling",
-        "Intelligent Customer Service Agents",
-        "Deterministic Guardrails & Auditing",
+        "Company Knowledge Base Search & Q&A",
+        "Automated Customer Inquiries & Triage",
+        "Multi-Step Workflow Execution",
+        "Safe, Accurate & Audited Guardrails",
       ],
-      technologies: ["OpenAI", "Gemini", "LangChain", "Vector DBs", "Python", "FastAPI"],
+      technologies: ["OpenAI", "Gemini", "Intelligent Search", "Python", "Secure APIs"],
     },
     {
       category: "ai-automation",
@@ -191,7 +191,7 @@ export default function ServicesSection({ onStartProject }: ServicesSectionProps
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-6">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/25 bg-orange-50 text-[11px] font-mono text-orange-700 font-semibold uppercase tracking-wider mb-4">
-              CAPABILITIES & ARCHITECTURE
+              WHAT WE BUILD & DELIVER
             </div>
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
               What We Build.

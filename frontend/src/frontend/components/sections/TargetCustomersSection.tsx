@@ -23,7 +23,7 @@ export default function TargetCustomersSection() {
       focus: "High-speed property showcases, lead automation, and WhatsApp dispatch.",
       icon: Building2,
       accent: "text-orange-600 bg-orange-50 border-orange-200",
-      capabilities: ["Sub-second Architectural Portals", "Automated Inbound Qualification", "Omnichannel Lead Nurturing"],
+      capabilities: ["Interactive Property Portals", "Automated Inbound Qualification", "Omnichannel Lead Nurturing"],
     },
     {
       title: "Education & Academies",

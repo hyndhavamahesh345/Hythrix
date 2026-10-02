@@ -137,7 +137,7 @@ export async function calculateLeadStats(leads: Lead[]): Promise<LeadStats> {
     qualifiedDossiers: qualifiedCount,
     siteVisitsScheduled: visitCount,
     tokensBooked: bookedCount,
-    avgResponseSeconds: 58,
+    avgResponseSeconds: 0,
     qualificationRate: rate,
   };
 }
