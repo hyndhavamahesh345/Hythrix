@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luminous - AI Social Automation</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- UnicornStudio.js (v1.4.34) -->
+  <script src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.34/dist/unicornStudio.umd.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+            bricolage: ['Bricolage Grotesque', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              orange: '#f97316',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Base style */
+    body {
+      background-color: #050505;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: rgba(249, 115, 22, 0.3);
+      color: #ffffff;
+    }
+
+    /* Fixed background layers */
+    .bg-layer-stars {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px);
+      background-size: 200px 200px;
+      opacity: 0.2;
+    }
+
+    /* Keyframe Animations */
+    @keyframes entryAnim {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    .animate-entry {
+      animation: entryAnim 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes flowAnim {
+      from {
+        stroke-dashoffset: 32;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    .animate-flow {
+      animation: flowAnim 1.4s linear infinite;
+    }
+
+    /* Card overflow constraints */
+    .growth-velocity-card {
+      overflow: hidden;
+      border-radius: 32px;
+    }
+
+    .os-dashboard-card {
+      overflow: hidden;
+      border-radius: 24px;
+    }
+
+    /* Electric Card Hover Interaction */
+    .electric-card {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .electric-card:hover {
+      box-shadow: 0 0 30px rgba(249, 115, 22, 0.3) !important;
+      border-color: rgba(249, 115, 22, 0.45);
+    }
+
+    /* Button Gradient */
+    .btn-gradient-primary {
+      background: linear-gradient(135deg, #fef08a 0%, #fb923c 50%, #f97316 100%);
+      color: #050505;
+      font-weight: 600;
+    }
+
+    /* Orbit Animations */
+    @keyframes orbitRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes orbitCounterRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(-360deg); }
+    }
+
+    .orbit-container {
+      animation: orbitRotate 60s linear infinite;
+    }
+    .orbit-item {
+      animation: orbitCounterRotate 60s linear infinite;
+    }
+
+    /* Scroll Observer fade */
+    .fade-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="bg-[#050505] text-white selection:bg-orange-500/30 font-inter relative min-h-screen">
+
+  <!-- ==========================================
+       THREE FIXED BACKGROUND LAYERS (z-0)
+  =========================================== -->
+  <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+    <!-- Layer 1: Custom radial-gradient star pattern (200x200px size, opacity 0.2) -->
+    <div class="absolute inset-0 bg-layer-stars"></div>
+
+    <!-- Layer 2: Top-center orange-900 blur (800x500px) -->
+    <div class="absolute w-[800px] h-[500px] bg-orange-900/30 blur-[150px] rounded-full left-1/2 -translate-x-1/2 -top-40"></div>
+
+    <!-- Layer 3: Bottom-right orange-950 blur (600x600px) -->
+    <div class="absolute w-[600px] h-[600px] bg-orange-950/40 blur-[160px] rounded-full right-0 bottom-0"></div>
+  </div>
+
+  <!-- ==========================================
+       SECTION 1 - NAVIGATION (z-50)
+  =========================================== -->
+  <header class="sticky top-0 z-50 w-full pt-4 pb-2 px-4 sm:px-6 lg:px-8">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Logo: Dual Lucide Asterisk Icons + Luminous in Inter -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="relative flex items-center justify-center w-8 h-8">
+          <i data-lucide="asterisk" class="w-8 h-8 text-white rotate-45 absolute transition-transform group-hover:rotate-90 duration-500"></i>
+          <i data-lucide="asterisk" class="w-[32px] h-[32px] text-orange-500 absolute transition-transform group-hover:-rotate-45 duration-500"></i>
+        </div>
+        <span class="font-inter font-semibold text-xl tracking-tight text-white">Luminous</span>
+      </a>
+
+      <!-- Centered Menu Pill (bg-white/5, backdrop-blur-md) -->
+      <div class="hidden md:flex items-center bg-white/5 backdrop-blur-md border border-white/10 px-2 py-1.5 rounded-full shadow-lg text-sm text-neutral-300">
+        <!-- Active link: Home with orange dot & shadow-inner -->
+        <a href="#hero" class="bg-neutral-800/80 shadow-inner rounded-full px-3.5 py-1 text-white font-medium flex items-center gap-2 transition-colors">
+          <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
+          <span>Home</span>
+        </a>
+        
+        <span class="opacity-40 text-neutral-400 px-1 select-none">/</span>
+        <a href="#os-showcase" class="px-3 py-1 hover:text-white transition-colors">Features</a>
+
+        <span class="opacity-40 text-neutral-400 px-1 select-none">/</span>
+        <a href="#orbit" class="px-3 py-1 hover:text-white transition-colors">Workflow</a>
+
+        <span class="opacity-40 text-neutral-400 px-1 select-none">/</span>
+        <a href="#testimonials" class="px-3 py-1 hover:text-white transition-colors">Testimonials</a>
+
+        <span class="opacity-40 text-neutral-400 px-1 select-none">/</span>
+        <a href="#pricing" class="px-3 py-1 hover:text-white transition-colors">Pricing</a>
+      </div>
+
+      <!-- CTA Button: bg-gradient-to-b from-orange-400 to-orange-600 -->
+      <div class="flex items-center gap-3">
+        <a href="#pricing" class="inline-flex items-center justify-center px-5 py-2 rounded-full font-medium text-sm text-white bg-gradient-to-b from-orange-400 to-orange-600 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:brightness-105 active:scale-95 transition-all">
+          Get Started
+        </a>
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- ==========================================
+       MAIN CONTENT CONTAINER (z-10, relative)
+  =========================================== -->
+  <main class="relative z-10">
+
+    <!-- ==========================================
+         SECTION 2 - HERO (12-column grid, max-w-7xl)
+    =========================================== -->
+    <section id="hero" class="relative pt-12 pb-24 lg:pt-20 lg:pb-32 overflow-hidden">
+      <!-- UnicornStudio project canvas container -->
+      <div data-us-project="AhqzKk9mZE0EnlENMQDi" class="absolute inset-0 pointer-events-none opacity-30 z-0"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <!-- Left Column (lg:col-span-7) -->
+          <div class="lg:col-span-7 space-y-6 animate-entry">
+            
+            <!-- Tagline Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-orange-400 text-xs font-mono font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+              Social Growth, Autopilot Mode
+            </div>
+
+            <!-- SOURCE QUIRK:
+                 SEARCH SALIENCE followed by an empty inline-flex span, then SEO EXPERTS on a new line.
+                 Bricolage Grotesque font-light. -->
+            <h1 class="font-bricolage font-light text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-white">
+              SEARCH SALIENCE <span class="inline-flex"></span><br>SEO EXPERTS
+            </h1>
+
+            <!-- Subhead in text-neutral-400 -->
+            <p class="text-neutral-400 text-lg sm:text-xl font-normal leading-relaxed max-w-xl">
+              Turn social content into predictable growth. Deploy AI models engineered to generate viral posts, optimize timing, and expand audience reach across every channel.
+            </p>
+
+            <!-- Buttons Group -->
+            <div class="pt-2 flex flex-wrap items-center gap-4">
+              <!-- Primary: Button gradient from-yellow-200 via-orange-400 to-orange-500 with shadow-orange-500/60 -->
+              <a href="#pricing" class="btn-gradient-primary px-7 py-3.5 rounded-full text-sm font-semibold shadow-lg shadow-orange-500/40 hover:shadow-orange-500/60 hover:brightness-105 active:scale-95 transition-all inline-flex items-center gap-2">
+                <span>Start Automation</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 text-black"></i>
+              </a>
+
+              <!-- Secondary: bg-white text-black -->
+              <a href="#os-showcase" class="bg-white text-black font-semibold text-sm px-7 py-3.5 rounded-full hover:bg-neutral-200 active:scale-95 transition-all inline-flex items-center gap-2">
+                <span>View Dashboard</span>
+              </a>
+            </div>
+
+            <!-- Breadcrumb / Meta Note with 0.4 slash -->
+            <div class="pt-4 flex items-center gap-3 text-xs text-neutral-500 font-mono">
+              <span>Next-Gen Social AI</span>
+              <span class="opacity-40">/</span>
+              <span>Sub-second Dispatch</span>
+              <span class="opacity-40">/</span>
+              <span>100% Platform Compliant</span>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Growth Velocity Card (lg:col-span-5) -->
+          <div class="lg:col-span-5 animate-entry">
+            <!-- SOURCE QUIRK: Card overflow hidden with rounded-[32px] + electric-card hover shadow -->
+            <div class="growth-velocity-card electric-card bg-neutral-900/80 border border-white/10 backdrop-blur-md p-7 relative shadow-2xl">
+              
+              <!-- Subtle top glow -->
+              <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-orange-500 via-amber-400 to-transparent"></div>
+
+              <!-- Top Bar: Title & Live Pulsing Viral Result Badge -->
+              <div class="flex items-center justify-between mb-6">
+                <div>
+                  <div class="text-xs font-mono uppercase tracking-wider text-neutral-400">Campaign Performance</div>
+                  <h3 class="font-bricolage text-xl font-semibold text-white">Growth Velocity</h3>
+                </div>
+
+                <!-- Live-pulsing "Viral Result" badge -->
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/15 border border-orange-500/30 text-orange-400 text-xs font-mono font-medium">
+                  <span class="w-2 h-2 rounded-full bg-orange-400 animate-ping"></span>
+                  Viral Result
+                </span>
+              </div>
+
+              <!-- Large +842% stat in Bricolage Grotesque -->
+              <div class="mb-6">
+                <div class="flex items-baseline gap-3">
+                  <span class="font-bricolage text-5xl sm:text-6xl font-bold text-white tracking-tight">+842%</span>
+                  <span class="text-emerald-400 text-sm font-semibold flex items-center gap-0.5">
+                    <i data-lucide="trending-up" class="w-4 h-4"></i>
+                    vs last 30d
+                  </span>
+                </div>
+                <p class="text-xs text-neutral-400 mt-1">Cross-platform reach exponential trajectory</p>
+              </div>
+
+              <!-- VECTOR / ICON SHAPES: Sparkline Chart with exact path & dot on last point -->
+              <div class="relative py-2 mb-6">
+                <svg class="w-full h-28 overflow-visible" viewBox="0 0 280 60" fill="none">
+                  <defs>
+                    <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="60" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#f97316" stop-opacity="0.3" />
+                      <stop offset="100%" stop-color="#f97316" stop-opacity="0" />
+                    </linearGradient>
+                  </defs>
+                  
+                  <!-- Area Fill -->
+                  <path d="M0 50 C 40 50, 60 30, 100 35 C 140 40, 160 10, 200 15 C 240 20, 260 5, 280 0 L 280 60 L 0 60 Z" fill="url(#chartGradient)" />
+                  
+                  <!-- Stroke Line -->
+                  <path d="M0 50 C 40 50, 60 30, 100 35 C 140 40, 160 10, 200 15 C 240 20, 260 5, 280 0" stroke="#f97316" stroke-width="2.5" stroke-linecap="round" />
+                  
+                  <!-- Dot on last point (280, 0) -->
+                  <circle cx="280" cy="0" r="4.5" fill="#f97316" />
+                  <circle cx="280" cy="0" r="9" fill="#f97316" opacity="0.35" class="animate-ping" />
+                </svg>
+              </div>
+
+              <!-- "Total Impressions" metric list -->
+              <div class="border-t border-white/10 pt-5 space-y-3 font-mono text-xs">
+                <div class="flex items-center justify-between">
+                  <span class="text-neutral-400 flex items-center gap-1.5">
+                    <i data-lucide="eye" class="w-3.5 h-3.5 text-orange-400"></i>
+                    Total Impressions
+                  </span>
+                  <span class="text-white font-semibold">2,841,920</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-neutral-400 flex items-center gap-1.5">
+                    <i data-lucide="repeat" class="w-3.5 h-3.5 text-orange-400"></i>
+                    Auto-Shared Reposts
+                  </span>
+                  <span class="text-white font-semibold">14,280</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-neutral-400 flex items-center gap-1.5">
+                    <i data-lucide="zap" class="w-3.5 h-3.5 text-orange-400"></i>
+                    AI Dispatch Latency
+                  </span>
+                  <span class="text-emerald-400 font-semibold">0.42s avg</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3 - OS SHOWCASE (DASHBOARD)
+    =========================================== -->
+    <section id="os-showcase" class="py-20 lg:py-28 relative border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Heading -->
+        <div class="text-center max-w-3xl mx-auto mb-16 fade-on-scroll">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-orange-400 text-xs font-mono font-medium mb-3">
+            <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+            AUTONOMOUS OPERATING SYSTEM
+          </div>
+          <h2 class="font-bricolage text-4xl sm:text-5xl font-bold text-white tracking-tight">
+            The Luminous OS Dashboard.
+          </h2>
+          <p class="mt-4 text-neutral-400 text-base sm:text-lg">
+            Complete visual control over campaigns, autonomous reply bots, and algorithmic trend triggers in one glassmorphic interface.
+          </p>
+        </div>
+
+        <!-- SOURCE QUIRK: OS Dashboard uses overflow: hidden with rounded-[24px] + glassmorphism -->
+        <div class="os-dashboard-card electric-card bg-neutral-900/80 ring-1 ring-white/10 backdrop-blur-sm shadow-2xl">
+          
+          <!-- Top Window Chrome Bar -->
+          <div class="px-6 py-4 bg-neutral-950/80 border-b border-white/10 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+                <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+              </div>
+              <span class="text-xs font-mono text-neutral-400 pl-3 border-l border-white/10">luminous-os v2.4 // active-session</span>
+            </div>
+
+            <div class="flex items-center gap-3 text-xs font-mono">
+              <span class="inline-flex items-center gap-1.5 text-emerald-400">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Engine Synchronized
+              </span>
+            </div>
+          </div>
+
+          <!-- 3-Column Dashboard Body -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[520px]">
+            
+            <!-- Left Sidebar (lg:col-span-3) -->
+            <div class="lg:col-span-3 bg-neutral-950/40 p-5 border-b lg:border-b-0 lg:border-r border-white/10 flex flex-col justify-between">
+              <div class="space-y-6">
+                <!-- "New Campaign" button -->
+                <button class="w-full py-2.5 px-4 rounded-xl btn-gradient-primary text-xs font-semibold flex items-center justify-center gap-2 shadow-md hover:brightness-105 transition-all">
+                  <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                  <span>New Campaign</span>
+                </button>
+
+                <!-- Platform/Content AI nav groups -->
+                <div>
+                  <div class="text-[11px] font-mono uppercase tracking-wider text-neutral-500 mb-2">Platform Engine</div>
+                  <nav class="space-y-1 text-xs">
+                    <a href="#" class="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/10 text-white font-medium">
+                      <i data-lucide="layout-grid" class="w-4 h-4 text-orange-400"></i>
+                      <span>Command Center</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">
+                      <i data-lucide="flame" class="w-4 h-4"></i>
+                      <span>Viral Queue</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">
+                      <i data-lucide="calendar" class="w-4 h-4"></i>
+                      <span>Autonomous Calendar</span>
+                    </a>
+                  </nav>
+                </div>
+
+                <div>
+                  <div class="text-[11px] font-mono uppercase tracking-wider text-neutral-500 mb-2">Content AI</div>
+                  <nav class="space-y-1 text-xs">
+                    <a href="#" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">
+                      <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+                      <span>Prompt Fine-Tuning</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">
+                      <i data-lucide="bot" class="w-4 h-4"></i>
+                      <span>Persona Models</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">
+                      <i data-lucide="shield-check" class="w-4 h-4"></i>
+                      <span>Safety Filters</span>
+                    </a>
+                  </nav>
+                </div>
+              </div>
+
+              <!-- Storage quota -->
+              <div class="pt-4 border-t border-white/5 text-[11px] font-mono text-neutral-400">
+                <div class="flex justify-between mb-1">
+                  <span>AI Credits</span>
+                  <span class="text-white">8,420 / 10k</span>
+                </div>
+                <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                  <div class="w-[84%] bg-orange-500 h-full"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Center Content (lg:col-span-6) -->
+            <div class="lg:col-span-6 p-6 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-white/10">
+              
+              <div class="space-y-6">
+                <!-- Center Tabs (Overview active with orange border-b) -->
+                <div class="flex items-center gap-6 border-b border-white/10 text-xs">
+                  <button class="pb-3 text-white font-medium border-b-2 border-orange-500 flex items-center gap-1.5">
+                    <span>Overview</span>
+                    <span class="px-1.5 py-0.5 rounded-full bg-orange-500/20 text-orange-400 text-[10px]">LIVE</span>
+                  </button>
+                  <button class="pb-3 text-neutral-400 hover:text-white transition-colors">Performance</button>
+                  <button class="pb-3 text-neutral-400 hover:text-white transition-colors">Audience</button>
+                  <button class="pb-3 text-neutral-400 hover:text-white transition-colors">Settings</button>
+                </div>
+
+                <!-- "Viral Velocity" Feed Heading -->
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h4 class="text-sm font-semibold text-white">Viral Velocity Feed</h4>
+                    <p class="text-xs text-neutral-400 font-mono">Real-time automation stream</p>
+                  </div>
+                  <span class="text-xs text-orange-400 font-mono flex items-center gap-1">
+                    <i data-lucide="activity" class="w-3.5 h-3.5"></i> 3 active dispatches
+                  </span>
+                </div>
+
+                <!-- Performance Cards -->
+                <div class="space-y-3">
+                  <!-- Card 1: Engagement Spike -->
+                  <div class="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-orange-500/30 transition-all flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                      <div class="w-8 h-8 rounded-lg bg-orange-500/20 text-orange-400 flex items-center justify-center">
+                        <i data-lucide="zap" class="w-4 h-4"></i>
+                      </div>
+                      <div>
+                        <div class="text-xs font-semibold text-white">Engagement Spike Detected</div>
+                        <div class="text-[11px] text-neutral-400">Thread #092 on X is trending at 480 RT/min</div>
+                      </div>
+                    </div>
+                    <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">
+                      +194%
+                    </span>
+                  </div>
+
+                  <!-- Card 2: Generating Content -->
+                  <div class="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-orange-500/30 transition-all flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                      <div class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                      </div>
+                      <div>
+                        <div class="text-xs font-semibold text-white">Generating Content Variations</div>
+                        <div class="text-[11px] text-neutral-400">Synthesizing 6 short-form video hooks</div>
+                      </div>
+                    </div>
+                    <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 font-medium animate-pulse">
+                      In Progress
+                    </span>
+                  </div>
+
+                  <!-- Card 3: Competitor Alert -->
+                  <div class="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-orange-500/30 transition-all flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                      <div class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center">
+                        <i data-lucide="radar" class="w-4 h-4"></i>
+                      </div>
+                      <div>
+                        <div class="text-xs font-semibold text-white">Competitor Alert Triggered</div>
+                        <div class="text-[11px] text-neutral-400">Keyword gap identified on LinkedIn tech sector</div>
+                      </div>
+                    </div>
+                    <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20 font-medium">
+                      Analyzed
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Progress Bar: 67% filled with gradient from-orange-500 to-amber-500 -->
+              <div class="pt-6 mt-6 border-t border-white/10">
+                <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-2">
+                  <span>Cycle Completion Rate</span>
+                  <span class="text-white font-bold">67%</span>
+                </div>
+                <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+                  <div class="w-[67%] bg-gradient-to-r from-orange-500 to-amber-500 h-full rounded-full transition-all duration-500"></div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right Sidebar (lg:col-span-3) -->
+            <div class="lg:col-span-3 p-5 bg-neutral-950/40 flex flex-col justify-between space-y-6">
+              
+              <!-- Live Metrics Grid -->
+              <div>
+                <div class="text-[11px] font-mono uppercase tracking-wider text-neutral-500 mb-3">Live Telemetry</div>
+                <div class="grid grid-cols-2 gap-2 text-xs font-mono">
+                  <div class="p-3 rounded-lg bg-white/[0.02] border border-white/5">
+                    <span class="text-neutral-500 block text-[10px]">LIVE IMPRESSIONS</span>
+                    <span class="text-white font-bold text-sm">48.2k</span>
+                  </div>
+                  <div class="p-3 rounded-lg bg-white/[0.02] border border-white/5">
+                    <span class="text-neutral-500 block text-[10px]">ACTIVE BOTS</span>
+                    <span class="text-emerald-400 font-bold text-sm">12/12</span>
+                  </div>
+                  <div class="p-3 rounded-lg bg-white/[0.02] border border-white/5">
+                    <span class="text-neutral-500 block text-[10px]">AVG CTR</span>
+                    <span class="text-orange-400 font-bold text-sm">5.8%</span>
+                  </div>
+                  <div class="p-3 rounded-lg bg-white/[0.02] border border-white/5">
+                    <span class="text-neutral-500 block text-[10px]">QUEUED POSTS</span>
+                    <span class="text-white font-bold text-sm">34</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Connected Accounts Icons -->
+              <div>
+                <div class="text-[11px] font-mono uppercase tracking-wider text-neutral-500 mb-3">Connected Channels</div>
+                <div class="flex items-center gap-2 text-neutral-300">
+                  <div class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:text-white hover:border-orange-500/40 transition-colors" title="Twitter/X">
+                    <i data-lucide="twitter" class="w-4 h-4"></i>
+                  </div>
+                  <div class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:text-white hover:border-orange-500/40 transition-colors" title="Instagram">
+                    <i data-lucide="instagram" class="w-4 h-4"></i>
+                  </div>
+                  <div class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:text-white hover:border-orange-500/40 transition-colors" title="LinkedIn">
+                    <i data-lucide="linkedin" class="w-4 h-4"></i>
+                  </div>
+                  <div class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:text-white hover:border-orange-500/40 transition-colors" title="YouTube">
+                    <i data-lucide="youtube" class="w-4 h-4"></i>
+                  </div>
+                  <div class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:text-white hover:border-orange-500/40 transition-colors" title="RSS / Webhook">
+                    <i data-lucide="rss" class="w-4 h-4"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3 Autopilot Toggles -->
+              <div>
+                <div class="text-[11px] font-mono uppercase tracking-wider text-neutral-500 mb-3">Autopilot Rules</div>
+                <div class="space-y-2 text-xs">
+                  
+                  <!-- Auto-repost: Active (orange) -->
+                  <div class="flex items-center justify-between p-2 rounded-lg bg-white/[0.02]">
+                    <span class="text-neutral-300">Auto-repost</span>
+                    <button class="w-8 h-4 rounded-full bg-orange-500 relative transition-colors cursor-pointer" aria-label="Toggle Auto-repost">
+                      <span class="w-3 h-3 rounded-full bg-white absolute right-0.5 top-0.5 shadow-sm"></span>
+                    </button>
+                  </div>
+
+                  <!-- Smart Reply: Active (orange) -->
+                  <div class="flex items-center justify-between p-2 rounded-lg bg-white/[0.02]">
+                    <span class="text-neutral-300">Smart Reply</span>
+                    <button class="w-8 h-4 rounded-full bg-orange-500 relative transition-colors cursor-pointer" aria-label="Toggle Smart Reply">
+                      <span class="w-3 h-3 rounded-full bg-white absolute right-0.5 top-0.5 shadow-sm"></span>
+                    </button>
+                  </div>
+
+                  <!-- Trend Watch: Inactive (neutral) -->
+                  <div class="flex items-center justify-between p-2 rounded-lg bg-white/[0.02]">
+                    <span class="text-neutral-400">Trend Watch</span>
+                    <button class="w-8 h-4 rounded-full bg-neutral-700 relative transition-colors cursor-pointer" aria-label="Toggle Trend Watch">
+                      <span class="w-3 h-3 rounded-full bg-neutral-400 absolute left-0.5 top-0.5 shadow-sm"></span>
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         ORBIT SECTION (Responsive: scale 0.65 on mobile, 1.0 on desktop)
+    =========================================== -->
+    <section id="orbit" class="py-24 relative overflow-hidden border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        
+        <div class="max-w-2xl mx-auto mb-16 fade-on-scroll">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-orange-400 text-xs font-mono font-medium mb-3">
+            <i data-lucide="orbit" class="w-3.5 h-3.5"></i>
+            MULTI-CHANNEL SYNCHRONICITY
+          </div>
+          <h2 class="font-bricolage text-4xl sm:text-5xl font-bold text-white tracking-tight">
+            Universal Social Engine.
+          </h2>
+          <p class="mt-4 text-neutral-400 text-base">
+            One central AI engine broadcasting and listening continuously across all major developer and consumer platforms.
+          </p>
+        </div>
+
+        <!-- Orbit Container with Responsive Scale -->
+        <div class="relative w-[500px] h-[500px] mx-auto flex items-center justify-center transform scale-[0.65] md:scale-100 transition-transform origin-center">
+          
+          <!-- Static Concentric Rings (10% to 30% opacity) -->
+          <div class="absolute inset-0 rounded-full border border-white/10 pointer-events-none"></div>
+          <div class="absolute inset-12 rounded-full border border-white/15 pointer-events-none"></div>
+          <div class="absolute inset-24 rounded-full border border-white/20 pointer-events-none"></div>
+          <div class="absolute inset-36 rounded-full border border-orange-500/30 pointer-events-none"></div>
+
+          <!-- Central Core Hub with Dual Asterisk -->
+          <div class="relative z-20 w-20 h-20 rounded-full bg-gradient-to-br from-neutral-900 to-neutral-950 border-2 border-orange-500 flex items-center justify-center shadow-[0_0_35px_rgba(249,115,22,0.4)]">
+            <div class="relative flex items-center justify-center w-10 h-10">
+              <i data-lucide="asterisk" class="w-10 h-10 text-white rotate-45 absolute"></i>
+              <i data-lucide="asterisk" class="w-10 h-10 text-orange-500 absolute"></i>
+            </div>
+          </div>
+
+          <!-- Rotating Container (animate-spin 60s) -->
+          <div class="absolute inset-0 orbit-container z-10">
+            
+            <!-- Orbit Icon 1: Twitter (Top) -->
+            <div class="absolute top-4 left-1/2 -translate-x-1/2">
+              <div class="orbit-item w-12 h-12 rounded-full bg-neutral-900 border border-white/20 flex items-center justify-center text-white shadow-lg shadow-orange-500/10 hover:border-orange-500 transition-colors">
+                <i data-lucide="twitter" class="w-5 h-5 text-orange-400"></i>
+              </div>
+            </div>
+
+            <!-- Orbit Icon 2: Instagram (Right) -->
+            <div class="absolute top-1/2 right-4 -translate-y-1/2">
+              <div class="orbit-item w-12 h-12 rounded-full bg-neutral-900 border border-white/20 flex items-center justify-center text-white shadow-lg shadow-orange-500/10 hover:border-orange-500 transition-colors">
+                <i data-lucide="instagram" class="w-5 h-5 text-orange-400"></i>
+              </div>
+            </div>
+
+            <!-- Orbit Icon 3: LinkedIn (Bottom) -->
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2">
+              <div class="orbit-item w-12 h-12 rounded-full bg-neutral-900 border border-white/20 flex items-center justify-center text-white shadow-lg shadow-orange-500/10 hover:border-orange-500 transition-colors">
+                <i data-lucide="linkedin" class="w-5 h-5 text-orange-400"></i>
+              </div>
+            </div>
+
+            <!-- Orbit Icon 4: YouTube (Left) -->
+            <div class="absolute top-1/2 left-4 -translate-y-1/2">
+              <div class="orbit-item w-12 h-12 rounded-full bg-neutral-900 border border-white/20 flex items-center justify-center text-white shadow-lg shadow-orange-500/10 hover:border-orange-500 transition-colors">
+                <i data-lucide="youtube" class="w-5 h-5 text-orange-400"></i>
+              </div>
+            </div>
+
+            <!-- Orbit Icon 5: MessageSquare (Top Right diagonal) -->
+            <div class="absolute top-20 right-20">
+              <div class="orbit-item w-10 h-10 rounded-full bg-neutral-900 border border-white/15 flex items-center justify-center text-white">
+                <i data-lucide="message-square" class="w-4 h-4 text-amber-400"></i>
+              </div>
+            </div>
+
+            <!-- Orbit Icon 6: Share2 (Bottom Left diagonal) -->
+            <div class="absolute bottom-20 left-20">
+              <div class="orbit-item w-10 h-10 rounded-full bg-neutral-900 border border-white/15 flex items-center justify-center text-white">
+                <i data-lucide="share-2" class="w-4 h-4 text-amber-400"></i>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4 - TESTIMONIAL CAROUSEL
+    =========================================== -->
+    <section id="testimonials" class="py-24 relative border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- SOURCE QUIRK: Numbered heading "02." (text-8xl text-white/5) -->
+        <div class="relative mb-12">
+          <span class="font-bricolage text-8xl lg:text-9xl font-bold text-white/5 select-none absolute -top-12 left-0 pointer-events-none">02.</span>
+          <div class="relative z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-orange-400 text-xs font-mono font-medium mb-3">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+              CREATOR VALIDATION
+            </div>
+            <h2 class="font-bricolage text-4xl sm:text-5xl font-bold text-white tracking-tight">
+              Tested by Top Creators.
+            </h2>
+          </div>
+        </div>
+
+        <!-- Split Layout: Left Text Card + Right Image Card -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Left Text Card (lg:col-span-6) -->
+          <div class="lg:col-span-6 space-y-8">
+            <div class="electric-card bg-neutral-900/60 border border-white/10 rounded-3xl p-8 sm:p-10 backdrop-blur-md relative">
+              
+              <!-- Stars Rating -->
+              <div class="flex items-center gap-1 text-amber-400 mb-6">
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              </div>
+
+              <!-- Quote text with 300ms transition -->
+              <p id="t-quote" class="font-bricolage text-2xl sm:text-3xl text-white font-normal leading-snug transition-opacity duration-300">
+                &ldquo;Luminous completely transformed our publishing cadences. We went from manually scrambling 15 hours a week to automated dispatches that 4x’d our impressions in the first month alone.&rdquo;
+              </p>
+
+              <!-- Author & Role with 300ms transition -->
+              <div class="pt-8 mt-8 border-t border-white/10 flex items-center justify-between">
+                <div>
+                  <h4 id="t-author" class="font-semibold text-white text-base transition-opacity duration-300">Sophia Martinez</h4>
+                  <p id="t-role" class="text-neutral-400 text-sm font-mono transition-opacity duration-300">VP of Content, HyperScale Media</p>
+                </div>
+
+                <!-- Carousel Controls -->
+                <div class="flex items-center gap-2">
+                  <button onclick="prevTestimonial()" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-colors cursor-pointer" aria-label="Previous Testimonial">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                  </button>
+                  <button onclick="nextTestimonial()" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-orange-500 hover:text-black transition-colors cursor-pointer" aria-label="Next Testimonial">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right Image Card (lg:col-span-6) -->
+          <div class="lg:col-span-6">
+            <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl h-[500px] sm:h-[600px] group">
+              <!-- Testimonial Image: exact height 600px, object-cover -->
+              <img id="t-image" 
+                   src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/649a17f7-ce90-412e-bc8c-6227953b3ba4_1600w.webp" 
+                   alt="Featured Creator" 
+                   class="w-full h-full object-cover transition-opacity duration-300 group-hover:scale-105 transition-transform duration-700">
+
+              <!-- Absolute "Active Creator" badge -->
+              <div class="absolute top-6 left-6 px-3.5 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-white/10 text-xs font-mono font-medium text-emerald-400 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Active Creator // Verified Growth
+              </div>
+
+              <!-- Bottom gradient vignette -->
+              <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/80 to-transparent"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5 - PRICING FLOW
+    =========================================== -->
+    <section id="pricing" class="py-24 relative border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 fade-on-scroll">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-orange-400 text-xs font-mono font-medium mb-3">
+            <i data-lucide="tag" class="w-3.5 h-3.5"></i>
+            TRANSPARENT ARCHITECTURE
+          </div>
+          <h2 class="font-bricolage text-4xl sm:text-5xl font-bold text-white tracking-tight">
+            Predictable Scaled Pricing.
+          </h2>
+          <p class="mt-4 text-neutral-400 text-base sm:text-lg">
+            Choose the tier tailored for your publishing volume. Switch or cancel anytime.
+          </p>
+        </div>
+
+        <!-- Pricing Interactive Grid (Buttons Left, Connector Center, Card Right) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto relative">
+          
+          <!-- Left Column: Plan Trigger Buttons (lg:col-span-5) -->
+          <div class="lg:col-span-5 space-y-4 relative z-20">
+            
+            <!-- Button: Creator Plan -->
+            <button onclick="selectPlan('creator')" id="btn-plan-creator" class="plan-btn w-full text-left p-5 rounded-2xl bg-neutral-900/80 border border-white/10 transition-all flex items-center justify-between cursor-pointer">
+              <div>
+                <div class="text-xs font-mono uppercase tracking-wider text-neutral-400">Entry Tier</div>
+                <div class="font-bricolage text-xl font-bold text-white">Creator</div>
+                <div class="text-sm text-neutral-400 mt-0.5">$29 / month</div>
+              </div>
+              <div class="plan-dot w-3 h-3 rounded-full border-2 border-neutral-600"></div>
+            </button>
+
+            <!-- Button: Pro Plan (Default Active) -->
+            <button onclick="selectPlan('pro')" id="btn-plan-pro" class="plan-btn w-full text-left p-5 rounded-2xl bg-neutral-900/80 border border-orange-500 shadow-[0_0_20px_rgba(249,115,22,0.3)] transition-all flex items-center justify-between cursor-pointer">
+              <div>
+                <div class="text-xs font-mono uppercase tracking-wider text-orange-400 flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span> Most Popular
+                </div>
+                <div class="font-bricolage text-xl font-bold text-white">Pro Scale</div>
+                <div class="text-sm text-neutral-400 mt-0.5">$79 / month</div>
+              </div>
+              <div class="plan-dot w-3 h-3 rounded-full bg-orange-500 shadow-[0_0_8px_#f97316]"></div>
+            </button>
+
+            <!-- Button: Agency Plan -->
+            <button onclick="selectPlan('agency')" id="btn-plan-agency" class="plan-btn w-full text-left p-5 rounded-2xl bg-neutral-900/80 border border-white/10 transition-all flex items-center justify-between cursor-pointer">
+              <div>
+                <div class="text-xs font-mono uppercase tracking-wider text-neutral-400">Enterprise</div>
+                <div class="font-bricolage text-xl font-bold text-white">Agency & Studio</div>
+                <div class="text-sm text-neutral-400 mt-0.5">$199 / month</div>
+              </div>
+              <div class="plan-dot w-3 h-3 rounded-full border-2 border-neutral-600"></div>
+            </button>
+
+          </div>
+
+          <!-- Center Connector SVG (Hidden on mobile, lg:col-span-2) -->
+          <!-- LAYER STACK: Connector SVG (z-10, translate-y-16 relative to buttons) -->
+          <div class="hidden lg:block lg:col-span-2 relative h-48 pointer-events-none z-10 translate-y-4">
+            <svg class="w-full h-full overflow-visible" viewBox="-60 120 320 120" fill="none">
+              <!-- Path M-50 160 C 80 160, 80 200, 180 200 L 240 200 with stroke-dasharray 8 8 -->
+              <path id="pricing-connector" 
+                    d="M-50 160 C 80 160, 80 200, 180 200 L 240 200" 
+                    stroke="#f97316" 
+                    stroke-width="2.5" 
+                    stroke-dasharray="8 8" 
+                    class="animate-flow" />
+            </svg>
+          </div>
+
+          <!-- Right Column: Details Card (lg:col-span-5) -->
+          <div class="lg:col-span-5 relative z-10">
+            <div class="electric-card bg-neutral-900/90 border border-white/10 rounded-3xl p-8 backdrop-blur-md shadow-2xl relative">
+              
+              <div class="flex items-center justify-between mb-4">
+                <span id="plan-tag" class="text-xs font-mono uppercase tracking-wider text-orange-400 font-semibold px-2.5 py-1 rounded bg-orange-500/10 border border-orange-500/20">
+                  Most Popular
+                </span>
+                <span class="text-xs font-mono text-neutral-400">Billed monthly</span>
+              </div>
+
+              <!-- Price & Title -->
+              <div class="mb-6">
+                <h3 id="plan-name" class="font-bricolage text-2xl font-bold text-white">Pro Scale</h3>
+                <div class="flex items-baseline gap-2 mt-2">
+                  <span id="plan-price" class="font-bricolage text-5xl font-bold text-white">$79</span>
+                  <span class="text-neutral-400 text-sm">/ month</span>
+                </div>
+                <p id="plan-desc" class="text-neutral-400 text-xs mt-2">
+                  Complete autonomous publishing, analytics, and viral reply generation for growing teams.
+                </p>
+              </div>
+
+              <!-- Dynamic Feature List with checkmark path: M22 12 6 22V2z -->
+              <div id="plan-features" class="space-y-3 pt-6 border-t border-white/10 text-xs">
+                <!-- Injected via JavaScript -->
+              </div>
+
+              <!-- Action Button -->
+              <div class="pt-8">
+                <button class="w-full py-3.5 rounded-xl btn-gradient-primary text-sm font-semibold shadow-lg hover:shadow-orange-500/30 active:scale-95 transition-all">
+                  Deploy Plan
+                </button>
+                <div class="text-center text-[11px] text-neutral-500 font-mono mt-3">
+                  14-day risk-free trial • No card required
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       SECTION 6 - FOOTER
+  =========================================== -->
+  <footer class="relative z-10 border-t border-white/10 overflow-hidden">
+    
+    <!-- Background Image: exact URL with dark overlay -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f5347579-34d0-43b9-99d3-126f6193d19d_1600w.jpg" 
+           alt="Footer Background" 
+           class="w-full h-full object-cover opacity-25">
+      <div class="absolute inset-0 bg-[#050505]/85"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20 pb-12">
+      
+      <!-- Top: Centered Newsletter Form (h-10 input and white button) -->
+      <div class="max-w-xl mx-auto text-center mb-20 fade-on-scroll">
+        <h3 class="font-bricolage text-3xl font-bold text-white mb-3">Join the Autonomous Frontier</h3>
+        <p class="text-neutral-400 text-sm mb-6">Receive weekly viral blueprint teardowns and algorithm updates.</p>
+        
+        <form onsubmit="event.preventDefault(); alert('Subscribed to Luminous dispatch.');" class="flex flex-col sm:flex-row items-center gap-2 max-w-md mx-auto">
+          <input type="email" 
+                 placeholder="Enter your email address" 
+                 required 
+                 class="w-full h-10 px-4 rounded-full bg-white/10 border border-white/20 text-white placeholder-neutral-400 text-xs focus:outline-none focus:border-orange-500 transition-colors">
+          <button type="submit" 
+                  class="w-full sm:w-auto h-10 px-6 rounded-full bg-white text-black font-semibold text-xs hover:bg-neutral-200 transition-colors shrink-0">
+            Subscribe
+          </button>
+        </form>
+      </div>
+
+      <!-- Bottom: 4-Column Grid (Product, Developers, Company, Logo) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-10 border-t border-white/10 pt-12 pb-12 text-xs">
+        
+        <!-- Col 1: Logo & Mission -->
+        <div class="col-span-2 md:col-span-1 space-y-4">
+          <a href="#" class="flex items-center gap-2.5">
+            <div class="relative flex items-center justify-center w-7 h-7">
+              <i data-lucide="asterisk" class="w-7 h-7 text-white rotate-45 absolute"></i>
+              <i data-lucide="asterisk" class="w-7 h-7 text-orange-500 absolute"></i>
+            </div>
+            <span class="font-inter font-semibold text-lg text-white">Luminous</span>
+          </a>
+          <p class="text-neutral-400 leading-relaxed text-xs">
+            Autonomous social automation operating system designed for modern media companies and high-output creators.
+          </p>
+          <div class="flex items-center gap-3 text-neutral-400 pt-2">
+            <a href="#" class="hover:text-orange-400 transition-colors" title="Twitter"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+            <a href="#" class="hover:text-orange-400 transition-colors" title="Instagram"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+            <a href="#" class="hover:text-orange-400 transition-colors" title="LinkedIn"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Product -->
+        <div>
+          <h4 class="font-mono text-neutral-300 uppercase tracking-wider mb-4 font-semibold">Product</h4>
+          <ul class="space-y-2.5 text-neutral-400">
+            <li><a href="#os-showcase" class="hover:text-white transition-colors">OS Command Center</a></li>
+            <li><a href="#os-showcase" class="hover:text-white transition-colors">Viral Queue</a></li>
+            <li><a href="#orbit" class="hover:text-white transition-colors">Channel Mesh</a></li>
+            <li><a href="#pricing" class="hover:text-white transition-colors">Pricing Tiers</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Developers -->
+        <div>
+          <h4 class="font-mono text-neutral-300 uppercase tracking-wider mb-4 font-semibold">Developers</h4>
+          <ul class="space-y-2.5 text-neutral-400">
+            <li><a href="#" class="hover:text-white transition-colors">API Documentation</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Webhook Dispatchers</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">SDK Releases</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">System Status</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Company -->
+        <div>
+          <h4 class="font-mono text-neutral-300 uppercase tracking-wider mb-4 font-semibold">Company</h4>
+          <ul class="space-y-2.5 text-neutral-400">
+            <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Brand Assets</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright & Breadcrumb Quirk (opacity 0.4 slash) -->
+      <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-500">
+        <div>
+          © 2026 Luminous Technologies Inc. All rights reserved.
+        </div>
+        <div class="flex items-center gap-3">
+          <span>San Francisco</span>
+          <span class="opacity-40">/</span>
+          <span>Tokyo</span>
+          <span class="opacity-40">/</span>
+          <span>London</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       JAVASCRIPT LOGIC
+  =========================================== -->
+  <script>
+    // --- Testimonials Carousel Data ---
+    const testimonials = [
+      {
+        quote: "Luminous completely transformed our publishing cadences. We went from manually scrambling 15 hours a week to automated dispatches that 4x’d our impressions in the first month alone.",
+        author: "Sophia Martinez",
+        role: "VP of Content, HyperScale Media",
+        image: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/649a17f7-ce90-412e-bc8c-6227953b3ba4_1600w.webp"
+      },
+      {
+        quote: "The autonomous reply bot alone paid for our annual tier within 72 hours. It captures qualified inbound leads on Twitter and LinkedIn while our team is completely offline.",
+        author: "Marcus Vance",
+        role: "Founding Partner, Apex Ventures",
+        image: "https://images.unsplash.com/photo-1640906152676-dace6710d24b?w=2160&q=80"
+      },
+      {
+        quote: "We run 12 active brand channels across Europe. Luminous synchronizes localization, tone curves, and competitor response windows flawlessly without a single glitch.",
+        author: "Elena Rostova",
+        role: "Director of Growth, Synthetix Labs",
+        image: "https://images.unsplash.com/photo-1629946832022-c327f74956e0?w=2160&q=80"
+      }
+    ];
+
+    let currentTestimonialIndex = 0;
+
+    function updateTestimonial(index) {
+      const qEl = document.getElementById("t-quote");
+      const aEl = document.getElementById("t-author");
+      const rEl = document.getElementById("t-role");
+      const imgEl = document.getElementById("t-image");
+
+      // 300ms fade transition
+      [qEl, aEl, rEl, imgEl].forEach(el => {
+        if (el) el.style.opacity = "0";
+      });
+
+      setTimeout(() => {
+        const item = testimonials[index];
+        if (qEl) qEl.innerHTML = `&ldquo;${item.quote}&rdquo;`;
+        if (aEl) aEl.textContent = item.author;
+        if (rEl) rEl.textContent = item.role;
+        if (imgEl) imgEl.src = item.image;
+
+        [qEl, aEl, rEl, imgEl].forEach(el => {
+          if (el) el.style.opacity = "1";
+        });
+      }, 300);
+    }
+
+    function nextTestimonial() {
+      currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+      updateTestimonial(currentTestimonialIndex);
+    }
+
+    function prevTestimonial() {
+      currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
+      updateTestimonial(currentTestimonialIndex);
+    }
+
+    // --- Pricing Interactive Flow ---
+    const plans = {
+      creator: {
+        tag: "Starter Tier",
+        name: "Creator",
+        price: "$29",
+        desc: "Ideal for solo creators and niche newsletter operators starting automation.",
+        features: [
+          "5 Connected Social Profiles",
+          "AI Autopilot Post Generation",
+          "1,000 Autonomous Smart Replies / mo",
+          "Standard Analytics & Queue View",
+          "Direct Community Discord Access"
+        ]
+      },
+      pro: {
+        tag: "Most Popular",
+        name: "Pro Scale",
+        price: "$79",
+        desc: "Complete autonomous publishing, analytics, and viral reply generation for growing teams.",
+        features: [
+          "15 Connected Social Profiles",
+          "Viral Predictor Engine (94% accuracy)",
+          "Unlimited Autonomous Smart Replies",
+          "Live Competitor Keyword Tracking",
+          "24/7 Autopilot Multi-Channel Queue",
+          "Custom Brand Persona Alignment"
+        ]
+      },
+      agency: {
+        tag: "Enterprise Tier",
+        name: "Agency & Studio",
+        price: "$199",
+        desc: "Designed for agencies managing multiple client brands with dedicated models.",
+        features: [
+          "Unlimited Connected Profiles",
+          "Custom Fine-Tuned LLM Models",
+          "Dedicated Account Lead & SLAs",
+          "White-label Client Analytics PDF Export",
+          "Full Webhook & REST API Access",
+          "Multi-seat Role Permissions"
+        ]
+      }
+    };
+
+    function selectPlan(planKey) {
+      const plan = plans[planKey];
+      if (!plan) return;
+
+      // Update active button styles
+      ['creator', 'pro', 'agency'].forEach(key => {
+        const btn = document.getElementById(`btn-plan-${key}`);
+        const dot = btn ? btn.querySelector('.plan-dot') : null;
+        if (key === planKey) {
+          btn.classList.add('border-orange-500', 'shadow-[0_0_20px_rgba(249,115,22,0.3)]');
+          btn.classList.remove('border-white/10');
+          if (dot) {
+            dot.className = 'plan-dot w-3 h-3 rounded-full bg-orange-500 shadow-[0_0_8px_#f97316]';
+          }
+        } else {
+          btn.classList.remove('border-orange-500', 'shadow-[0_0_20px_rgba(249,115,22,0.3)]');
+          btn.classList.add('border-white/10');
+          if (dot) {
+            dot.className = 'plan-dot w-3 h-3 rounded-full border-2 border-neutral-600';
+          }
+        }
+      });
+
+      // Update Connector SVG stroke color (#f97316 for active)
+      const connector = document.getElementById('pricing-connector');
+      if (connector) {
+        connector.setAttribute('stroke', '#f97316');
+        connector.style.opacity = '1';
+      }
+
+      // Update details card content
+      const tagEl = document.getElementById('plan-tag');
+      const nameEl = document.getElementById('plan-name');
+      const priceEl = document.getElementById('plan-price');
+      const descEl = document.getElementById('plan-desc');
+      const featuresEl = document.getElementById('plan-features');
+
+      if (tagEl) tagEl.textContent = plan.tag;
+      if (nameEl) nameEl.textContent = plan.name;
+      if (priceEl) priceEl.textContent = plan.price;
+      if (descEl) descEl.textContent = plan.desc;
+
+      // Render features with exact SVG checkmark: M22 12 6 22V2z
+      if (featuresEl) {
+        featuresEl.innerHTML = plan.features.map(f => `
+          <div class="flex items-center gap-3 text-neutral-300">
+            <svg class="w-4 h-4 text-orange-400 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22 12 6 22V2z" />
+            </svg>
+            <span>${f}</span>
+          </div>
+        `).join('');
+      }
+    }
+
+    // --- On DOM Loaded ---
+    document.addEventListener("DOMContentLoaded", () => {
+      // Initialize Lucide icons
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
+      }
+
+      // Initialize default plan (Pro)
+      selectPlan('pro');
+
+      // Initialize UnicornStudio if loaded
+      if (window.UnicornStudio && typeof window.UnicornStudio.init === 'function') {
+        window.UnicornStudio.init();
+      }
+
+      // Intersection Observer for scroll entry
+      const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.fade-on-scroll').forEach(el => {
+        scrollObserver.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

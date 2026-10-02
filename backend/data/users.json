@@ -1,0 +1,24 @@
+[
+  {
+    "id": "USER-7070",
+    "name": "Ananya Rao",
+    "email": "ananya@skyline.com",
+    "company": "Skyline Infra",
+    "role": "brokerage",
+    "passwordHash": "4e20851866f7a637b85f582a050151313212281d0274a8f2688b55dcd07b645136a6739b36d56237b7da75a1f21edfadf9a9cc0181f407c5208aed4db4f51de0",
+    "salt": "29c6706fea83b90954e6764ba8c9cb23",
+    "createdAt": "2026-09-29T14:31:48.571Z",
+    "lastLoginAt": "2026-09-29T14:32:00.789Z"
+  },
+  {
+    "id": "USER-1001",
+    "name": "Vikram Malhotra",
+    "email": "demo@hythrix.com",
+    "company": "Malhotra Developers",
+    "role": "developer",
+    "passwordHash": "6b655428325bfe2abd391a047587df9d8d67607ae28a79e9060a5f1f02ce39c7b1eb93640b5672a9859ca9fbd78fd70138dbb66dddd998281e8a548da4c0e085",
+    "salt": "e0ee2c6ad0995cc4cc715da400ef6753",
+    "createdAt": "2026-09-01T00:00:00.000Z",
+    "lastLoginAt": "2026-09-29T14:50:49.658Z"
+  }
+]

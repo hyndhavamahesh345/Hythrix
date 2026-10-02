@@ -1,0 +1,18 @@
+{
+  "name": "hythrix-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "HYTHRIX Real Estate Automation Platform - Monorepo (Frontend & Backend)",
+  "scripts": {
+    "dev": "concurrently -n \"BACKEND,FRONTEND\" -c \"yellow,cyan\" \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend",
+    "build": "npm run build --prefix backend && npm run build --prefix frontend",
+    "build:frontend": "npm run build --prefix frontend",
+    "build:backend": "npm run build --prefix backend",
+    "lint": "npm run lint --prefix frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
