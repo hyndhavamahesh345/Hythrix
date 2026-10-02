@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Founding Team & Leadership | HYTHRIX",
+  title: "Leadership Team | HYTHRIX",
   description:
-    "Meet the founding team behind HYTHRIX: Nirjogi Hyndhava Mahesh (Co-Founder & CEO), Thrishith Reddy Vootkur (Co-Founder & COO), and Sruthika Reddy Yedulla (Co-Founder & CTO).",
+    "Meet the leadership team behind HYTHRIX: Nirjogi Hyndhava Mahesh (CEO), Thrishith Reddy Vootkur (COO), and Sruthika Reddy Yedulla (CTO).",
   openGraph: {
-    title: "Founding Team & Leadership | HYTHRIX",
+    title: "Leadership Team | HYTHRIX",
     description:
-      "Meet the founding team behind HYTHRIX: Nirjogi Hyndhava Mahesh (Co-Founder & CEO), Thrishith Reddy Vootkur (Co-Founder & COO), and Sruthika Reddy Yedulla (Co-Founder & CTO).",
+      "Meet the leadership team behind HYTHRIX: Nirjogi Hyndhava Mahesh (CEO), Thrishith Reddy Vootkur (COO), and Sruthika Reddy Yedulla (CTO).",
   },
 };
 

@@ -6,9 +6,6 @@ import {
   ArrowUpRight,
   Shield,
   Zap,
-  Code2,
-  Workflow,
-  Target,
   Layers,
 } from "lucide-react";
 
@@ -29,35 +26,29 @@ export default function TeamSection({ onStartProject }: TeamSectionProps) {
     {
       name: "Nirjogi Hyndhava Mahesh",
       initials: "HM",
-      role: "Co-Founder & CEO",
+      role: "CEO",
       badgeColor: "text-orange-700 bg-orange-50 border-orange-200/80",
       accentGlow: "from-orange-500/20 via-orange-500/5 to-transparent",
       bio: "Leads business strategy, partnerships, business development, client acquisition, and the overall direction of HYTHRIX. Focused on turning business challenges into practical digital products, AI automation, and technology solutions.",
-      focus: ["Business Strategy", "Partnerships", "Client Acquisition", "AI Solutions"],
       linkedin: "https://www.linkedin.com/in/hyndhava-mahesh-30894a27/",
-      icon: Target,
     },
     {
       name: "Thrishith Reddy Vootkur",
       initials: "TR",
-      role: "Co-Founder & COO",
+      role: "COO",
       badgeColor: "text-amber-700 bg-amber-50 border-amber-200/80",
       accentGlow: "from-amber-500/20 via-amber-500/5 to-transparent",
       bio: "Leads operations, project delivery, client coordination, internal processes, growth initiatives, and team management. Focused on ensuring smooth execution and delivering projects efficiently.",
-      focus: ["Operations", "Project Delivery", "Process Execution", "Client Coordination"],
       linkedin: "https://www.linkedin.com/in/thrishith-reddy-vootkur-b03997381/",
-      icon: Workflow,
     },
     {
       name: "Sruthika Reddy Yedulla",
       initials: "SR",
-      role: "Co-Founder & CTO",
+      role: "CTO",
       badgeColor: "text-blue-700 bg-blue-50 border-blue-200/80",
       accentGlow: "from-blue-500/20 via-blue-500/5 to-transparent",
       bio: "Leads technology and product development at HYTHRIX, with a focus on web development, AI, automation, backend systems, APIs, and technical architecture.",
-      focus: ["Technical Architecture", "AI & Automation", "Full-Stack Web", "Backend APIs"],
       linkedin: "https://www.linkedin.com/in/sruthika-reddy-yedulla-023316321/",
-      icon: Code2,
     },
   ];
 
@@ -105,10 +96,9 @@ export default function TeamSection({ onStartProject }: TeamSectionProps) {
           </p>
         </div>
 
-        {/* 3 Co-Founders Grid */}
+        {/* Leadership Team Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-16">
           {teamMembers.map((member, idx) => {
-            const Icon = member.icon;
             return (
               <div
                 key={idx}
@@ -144,24 +134,6 @@ export default function TeamSection({ onStartProject }: TeamSectionProps) {
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
                     {member.bio}
                   </p>
-
-                  {/* Core Focus Tags */}
-                  <div className="pt-4 border-t border-slate-100 mb-6">
-                    <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block mb-2 font-semibold flex items-center gap-1.5">
-                      <Icon className="w-3.5 h-3.5 text-orange-500" />
-                      <span>LEADERSHIP PILLARS</span>
-                    </span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {member.focus.map((item, fIdx) => (
-                        <span
-                          key={fIdx}
-                          className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 border border-slate-200/80"
-                        >
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
                 </div>
 
                 {/* LinkedIn Profile Link */}
@@ -223,7 +195,7 @@ export default function TeamSection({ onStartProject }: TeamSectionProps) {
           {/* Quick Connect Callout */}
           <div className="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs sm:text-sm text-slate-600 text-center sm:text-left">
-              Want to consult directly with our co-founders on your product or architecture?
+              Want to consult directly with our leadership team on your product or architecture?
             </p>
             <button
               onClick={() => {
