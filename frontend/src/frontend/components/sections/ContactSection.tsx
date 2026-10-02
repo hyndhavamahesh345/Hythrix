@@ -17,7 +17,7 @@ export default function ContactSection() {
     email: "",
     phone: "",
     lookingFor: "Web Application",
-    budget: "$5,000 - $15,000",
+    budget: "$10,000 - $25,000",
     message: "",
   });
 
@@ -37,10 +37,10 @@ export default function ContactSection() {
   ];
 
   const budgetOptions = [
-    "Under $5,000",
-    "$5,000 - $15,000",
-    "$15,000 - $30,000",
-    "$30,000+",
+    "$10,000 - $25,000",
+    "$25,000 - $50,000",
+    "$50,000 - $100,000",
+    "$100,000+",
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -169,7 +169,7 @@ export default function ContactSection() {
                         email: "",
                         phone: "",
                         lookingFor: "Web Application",
-                        budget: "$5,000 - $15,000",
+                        budget: "$10,000 - $25,000",
                         message: "",
                       });
                     }}

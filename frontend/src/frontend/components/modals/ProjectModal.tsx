@@ -15,7 +15,7 @@ export default function ProjectModal({ isOpen, onClose }: ProjectModalProps) {
     email: "",
     phone: "",
     lookingFor: "Web Application",
-    budget: "$5,000 - $15,000",
+    budget: "$10,000 - $25,000",
     message: "",
   });
 
@@ -206,10 +206,10 @@ export default function ProjectModal({ isOpen, onClose }: ProjectModalProps) {
                     onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 focus:border-orange-500 text-slate-900 text-xs focus:outline-none"
                   >
-                    <option value="Under $5,000">Under $5,000</option>
-                    <option value="$5,000 - $15,000">$5,000 - $15,000</option>
-                    <option value="$15,000 - $30,000">$15,000 - $30,000</option>
-                    <option value="$30,000+">$30,000+</option>
+                    <option value="$10,000 - $25,000">$10,000 - $25,000</option>
+                    <option value="$25,000 - $50,000">$25,000 - $50,000</option>
+                    <option value="$50,000 - $100,000">$50,000 - $100,000</option>
+                    <option value="$100,000+">$100,000+</option>
                   </select>
                 </div>
               </div>
