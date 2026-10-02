@@ -24,8 +24,8 @@ interface TeamSectionProps {
 export default function TeamSection({ onStartProject }: TeamSectionProps) {
   const teamMembers = [
     {
-      name: "Nirjogi Hyndhava Mahesh",
-      initials: "HM",
+      name: "N Hyndhava Mahesh",
+      initials: "NH",
       role: "CEO",
       badgeColor: "text-orange-700 bg-orange-50 border-orange-200/80",
       accentGlow: "from-orange-500/20 via-orange-500/5 to-transparent",
@@ -33,8 +33,8 @@ export default function TeamSection({ onStartProject }: TeamSectionProps) {
       linkedin: "https://www.linkedin.com/in/hyndhava-mahesh-30894a27/",
     },
     {
-      name: "Thrishith Reddy Vootkur",
-      initials: "TR",
+      name: "V Thrishith Reddy",
+      initials: "VT",
       role: "COO",
       badgeColor: "text-amber-700 bg-amber-50 border-amber-200/80",
       accentGlow: "from-amber-500/20 via-amber-500/5 to-transparent",
@@ -42,8 +42,8 @@ export default function TeamSection({ onStartProject }: TeamSectionProps) {
       linkedin: "https://www.linkedin.com/in/thrishith-reddy-vootkur-b03997381/",
     },
     {
-      name: "Sruthika Reddy Yedulla",
-      initials: "SR",
+      name: "Y Sruthika Reddy",
+      initials: "YS",
       role: "CTO",
       badgeColor: "text-blue-700 bg-blue-50 border-blue-200/80",
       accentGlow: "from-blue-500/20 via-blue-500/5 to-transparent",
