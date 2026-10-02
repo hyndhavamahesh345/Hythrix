@@ -74,11 +74,6 @@ export default function Footer({ onStartProject, onOpenDemo }: FooterProps = {})
           <div>
             &copy; 2026 HYTHRIX. All rights reserved.
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-6 font-mono text-[10px] sm:text-[11px]">
-            <span>ENGINEERED WITH NEXT.JS & TYPESCRIPT</span>
-            <span className="hidden sm:inline-block h-1 w-1 rounded-full bg-slate-300" />
-            <span>ZERO CLIENT LEAKAGE</span>
-          </div>
         </div>
       </div>
     </footer>
