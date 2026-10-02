@@ -4,7 +4,6 @@ import { useState } from "react";
 import {
   Navbar,
   ServicesSection,
-  CtaBannerSection,
   Footer,
   FloatingWhatsAppButton,
   ProjectModal,
@@ -24,9 +23,6 @@ export default function ServicesPage() {
       <main className="flex-1 pt-14 sm:pt-16">
         {/* Full Services Section Component */}
         <ServicesSection onStartProject={openProjectModal} />
-
-        {/* Call to Action Banner */}
-        <CtaBannerSection onStartProject={openProjectModal} />
       </main>
 
       {/* Footer */}

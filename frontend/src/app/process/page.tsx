@@ -4,7 +4,6 @@ import { useState } from "react";
 import {
   Navbar,
   ProcessSection,
-  CtaBannerSection,
   Footer,
   FloatingWhatsAppButton,
   ProjectModal,
@@ -24,9 +23,6 @@ export default function ProcessPage() {
       <main className="flex-1 pt-14 sm:pt-16">
         {/* Full Process Section Component */}
         <ProcessSection />
-
-        {/* Call to Action Banner */}
-        <CtaBannerSection onStartProject={openProjectModal} />
       </main>
 
       {/* Footer */}
