@@ -30,6 +30,7 @@ export default function Navbar({ onStartProject }: NavbarProps) {
     { name: "Services", href: "/services" },
     { name: "Labs", href: "/labs", badge: "R&D" },
     { name: "Process", href: "/process" },
+    { name: "Team", href: "/team" },
     { name: "Contact", href: "/contact" },
   ];
 

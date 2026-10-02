@@ -16,6 +16,7 @@ export { default as ProcessSection } from "./components/sections/ProcessSection"
 export { default as TechnologySection } from "./components/sections/TechnologySection";
 export { default as WhyHythrixSection } from "./components/sections/WhyHythrixSection";
 export { default as TargetCustomersSection } from "./components/sections/TargetCustomersSection";
+export { default as TeamSection } from "./components/sections/TeamSection";
 export { default as CtaBannerSection } from "./components/sections/CtaBannerSection";
 export { default as ContactSection } from "./components/sections/ContactSection";
 

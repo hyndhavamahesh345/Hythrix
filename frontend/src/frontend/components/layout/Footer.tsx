@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import BrandLogo from "./BrandLogo";
 
 interface FooterProps {
@@ -23,6 +24,25 @@ export default function Footer({ onStartProject, onOpenDemo }: FooterProps = {})
             <p className="text-sm text-slate-600 max-w-md leading-relaxed">
               Digital products, AI & automation, and growth solutions for modern businesses. We transform ideas into resilient production technology.
             </p>
+          </div>
+
+          {/* Quick Navigation Links */}
+          <div className="flex flex-wrap items-center gap-5 sm:gap-6 text-xs sm:text-sm font-medium text-slate-600">
+            <Link href="/services" className="hover:text-slate-950 transition-colors">
+              Services
+            </Link>
+            <Link href="/labs" className="hover:text-slate-950 transition-colors">
+              Labs
+            </Link>
+            <Link href="/process" className="hover:text-slate-950 transition-colors">
+              Process
+            </Link>
+            <Link href="/team" className="hover:text-slate-950 transition-colors">
+              Team
+            </Link>
+            <Link href="/contact" className="hover:text-slate-950 transition-colors">
+              Contact
+            </Link>
           </div>
         </div>
 
