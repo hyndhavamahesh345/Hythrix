@@ -2,7 +2,6 @@
 export { default as BrandLogo } from "./components/layout/BrandLogo";
 export { default as Navbar } from "./components/layout/Navbar";
 export { default as Footer } from "./components/layout/Footer";
-export { default as FloatingWhatsAppButton } from "./components/common/FloatingWhatsAppButton";
 
 // Section components
 export { default as Hero } from "./components/sections/Hero";
@@ -18,7 +17,6 @@ export { default as WhyHythrixSection } from "./components/sections/WhyHythrixSe
 export { default as TargetCustomersSection } from "./components/sections/TargetCustomersSection";
 export { default as TeamSection } from "./components/sections/TeamSection";
 export { default as CtaBannerSection } from "./components/sections/CtaBannerSection";
-export { default as ContactSection } from "./components/sections/ContactSection";
 
 // Modal components
 export { default as ProjectModal } from "./components/modals/ProjectModal";

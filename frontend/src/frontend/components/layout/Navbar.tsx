@@ -31,7 +31,6 @@ export default function Navbar({ onStartProject }: NavbarProps) {
     { name: "Labs", href: "/labs", badge: "R&D" },
     { name: "Process", href: "/process" },
     { name: "Team", href: "/team" },
-    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -78,21 +77,17 @@ export default function Navbar({ onStartProject }: NavbarProps) {
             })}
           </nav>
 
-          {/* Right Action: Start a Project */}
+          {/* Right Action: Start a Project via WhatsApp */}
           <div className="hidden md:flex items-center gap-3">
-            <button
-              onClick={() => {
-                if (onStartProject) {
-                  onStartProject();
-                } else {
-                  router.push("/contact");
-                }
-              }}
+            <a
+              href={`https://wa.me/916305081722?text=${encodeURIComponent("Hi HYTHRIX, I would like to discuss a project.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="relative inline-flex items-center justify-center gap-2 px-4.5 py-2 text-xs lg:text-sm font-semibold text-white bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 hover:from-orange-500 hover:to-amber-400 rounded-full transition-all duration-200 shadow-md shadow-orange-500/20 hover:shadow-orange-500/35 hover:-translate-y-0.5 active:translate-y-0"
             >
-              <span>Start a Project</span>
+              <span>Contact Us</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
-            </button>
+            </a>
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -143,20 +138,16 @@ export default function Navbar({ onStartProject }: NavbarProps) {
             })}
 
             <div className="pt-2.5 border-t border-slate-100 flex flex-col gap-2">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  if (onStartProject) {
-                    onStartProject();
-                  } else {
-                    router.push("/contact");
-                  }
-                }}
+              <a
+                href={`https://wa.me/916305081722?text=${encodeURIComponent("Hi HYTHRIX, I would like to discuss a project.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
                 className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold text-white bg-gradient-to-r from-orange-600 to-amber-500 rounded-xl shadow-lg shadow-orange-500/20 active:opacity-95"
               >
-                <span>Start a Project</span>
+                <span>Contact Us</span>
                 <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </a>
             </div>
           </div>
         </div>

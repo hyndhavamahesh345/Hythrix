@@ -20,7 +20,7 @@ interface HeroProps {
 
 export default function Hero({ onStartProject }: HeroProps) {
   const router = useRouter();
-  const [activeLayer, setActiveLayer] = useState<"build" | "automate" | "grow">("build");
+  const [activeLayer, setActiveLayer] = useState<"build" | "automate" | "scale">("build");
 
   const layers = [
     {
@@ -100,41 +100,42 @@ export default function Hero({ onStartProject }: HeroProps) {
       },
     },
     {
-      id: "grow" as const,
+      id: "scale" as const,
       number: "03",
-      name: "GROW",
-      tagline: "Measurable Acquisition & Conversion",
+      name: "SCALE",
+      tagline: "Build Presence. Reach Audience. Turn Attention Into Growth.",
       icon: TrendingUp,
       accentColor: "from-emerald-500 to-teal-500",
       textColor: "text-emerald-600",
       badgeBg: "bg-emerald-50 border-emerald-200 text-emerald-700",
-      summary: "High-intent lead generation, technical SEO, conversion-rate optimization, and revenue analytics.",
+      summary:
+        "Build your presence. Reach the right audience. Turn attention into measurable growth. From content and social media to SEO, campaigns, and paid advertising, we create marketing systems designed around your business goals.",
       capabilities: [
         {
-          label: "Search Engine Optimization (SEO)",
-          description: "Technical foundations so your business gets discovered by high-intent clients.",
-          status: "Organic Growth",
+          label: "Digital & Social Media Marketing",
+          description: "Reach the right audience across organic social channels and digital platforms.",
+          status: "Audience Reach",
         },
         {
-          label: "High-Converting Landing Pages",
-          description: "Clear, persuasive page layouts designed specifically to capture enquiries.",
-          status: "Conversion Focused",
+          label: "Content Strategy & Brand Campaigns",
+          description: "High-impact storytelling and positioning that builds authority and trust.",
+          status: "Brand Authority",
         },
         {
-          label: "Qualified Lead Generation",
-          description: "Structured intake funnels that filter and deliver serious business prospects.",
-          status: "Inbound Pipeline",
+          label: "SEO & Paid Advertising",
+          description: "Search engine optimization and paid media that drive consistent inbound demand.",
+          status: "Demand Generation",
         },
         {
-          label: "Performance Analytics & Tracking",
-          description: "Clear attribution and conversion tracking to see exactly what drives ROI.",
-          status: "Transparent Data",
+          label: "Lead Generation & Conversion Analytics",
+          description: "Turn attention into paying customers with analytics and conversion optimization.",
+          status: "Customer Growth",
         },
       ],
       telemetry: {
-        engine: "Growth Funnels • Live Reporting",
-        latency: "Measurable Results",
-        integrity: "Transparent Attribution",
+        engine: "Marketing Systems • Campaigns",
+        latency: "Attention to Customers",
+        integrity: "Measurable Growth",
       },
     },
   ];
@@ -187,19 +188,15 @@ export default function Hero({ onStartProject }: HeroProps) {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
-              <button
-                onClick={() => {
-                  if (onStartProject) {
-                    onStartProject();
-                  } else {
-                    router.push("/contact");
-                  }
-                }}
+              <a
+                href={`https://wa.me/916305081722?text=${encodeURIComponent("Hi HYTHRIX, I would like to discuss a project.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-semibold text-white bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 hover:from-orange-500 hover:to-amber-400 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/35 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
               >
-                <span>Start a Project</span>
+                <span>Contact Us</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
 
               <Link
                 href="/services"
@@ -230,8 +227,8 @@ export default function Hero({ onStartProject }: HeroProps) {
                 <div className="text-[10px] sm:text-xs font-mono text-emerald-600 mb-0.5 sm:mb-1 font-semibold uppercase tracking-wider">
                   03 // SCALE
                 </div>
-                <div className="text-xs sm:text-sm font-semibold text-slate-900 leading-snug">Growth Systems</div>
-                <div className="text-[10px] sm:text-xs text-slate-500">SEO & Growth</div>
+                <div className="text-xs sm:text-sm font-semibold text-slate-900 leading-snug">Marketing</div>
+                <div className="text-[10px] sm:text-xs text-slate-500">Reach & Demand</div>
               </div>
             </div>
           </div>
@@ -354,8 +351,8 @@ export default function Hero({ onStartProject }: HeroProps) {
                     AUTOMATE
                   </span>
                   <ArrowRight className="w-3 h-3 text-slate-300" />
-                  <span className={activeLayer === "grow" ? "text-orange-600 font-bold" : "text-slate-400"}>
-                    GROW
+                  <span className={activeLayer === "scale" ? "text-orange-600 font-bold" : "text-slate-400"}>
+                    SCALE
                   </span>
                 </div>
               </div>

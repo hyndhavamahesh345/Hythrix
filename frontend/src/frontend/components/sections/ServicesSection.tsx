@@ -4,12 +4,10 @@ import { useState } from "react";
 import {
   Code2,
   Cpu,
-  TrendingUp,
   Globe,
   Database,
   Bot,
   Zap,
-  Layers,
   ArrowRight,
   CheckCircle2,
 } from "lucide-react";
@@ -19,7 +17,7 @@ interface ServicesSectionProps {
 }
 
 export default function ServicesSection({ onStartProject }: ServicesSectionProps) {
-  const [activeTab, setActiveTab] = useState<"all" | "digital-products" | "ai-automation" | "growth">("all");
+  const [activeTab, setActiveTab] = useState<"all" | "digital-products" | "ai-automation">("all");
 
   const services = [
     // 1. Digital Products (Flagship Priority)
@@ -139,46 +137,6 @@ export default function ServicesSection({ onStartProject }: ServicesSectionProps
       ],
       technologies: ["n8n", "Webhooks", "Python", "OCR", "HubSpot / Zoho API"],
     },
-
-    // 3. Growth Systems (Additional Capability)
-    {
-      category: "growth",
-      categoryName: "Growth Systems",
-      badge: "GROWTH CAPABILITY",
-      pillar: "GROW",
-      title: "Technical SEO & Programmatic Discovery",
-      description:
-        "Engineered SEO foundations, Core Web Vitals optimization, structured schema markup, and programmatic page generation that dominate organic search results.",
-      icon: TrendingUp,
-      accentBorder: "border-emerald-200 hover:border-emerald-400",
-      tagColor: "text-emerald-700 bg-emerald-50 border-emerald-200",
-      capabilities: [
-        "Core Web Vitals & Speed Optimization",
-        "Structured Schema & JSON-LD Architectures",
-        "Programmatic Landing Pages",
-        "Local Search & Geo-Targeted Signals",
-      ],
-      technologies: ["Next.js SSR", "Google Search Console", "Schema.org", "Lighthouse"],
-    },
-    {
-      category: "growth",
-      categoryName: "Growth Systems",
-      badge: "GROWTH CAPABILITY",
-      pillar: "GROW",
-      title: "Conversion Optimization & Analytics",
-      description:
-        "End-to-end telemetry and funnel architecture to turn traffic into qualified pipeline. Rigorous A/B testing, heatmap analytics, and revenue attribution.",
-      icon: Layers,
-      accentBorder: "border-teal-200 hover:border-teal-400",
-      tagColor: "text-teal-700 bg-teal-50 border-teal-200",
-      capabilities: [
-        "Frictionless Form & Lead Funnel Auditing",
-        "A/B Variant Testing & Layout Iteration",
-        "Full-Funnel CAC & Attribution Tracking",
-        "Event-Driven Behavioral Analytics",
-      ],
-      technologies: ["PostHog", "Google Analytics 4", "Mixpanel", "Conversion UI"],
-    },
   ];
 
   const filteredServices =
@@ -197,7 +155,7 @@ export default function ServicesSection({ onStartProject }: ServicesSectionProps
               What We Build.
             </h2>
             <p className="text-sm sm:text-lg text-slate-600 mt-3 sm:mt-4 leading-relaxed">
-              We specialize in engineering robust <span className="text-slate-900 font-semibold">Digital Products</span> and intelligent <span className="text-orange-600 font-semibold">AI & Automation</span> workflows, backed by measurable <span className="text-emerald-600 font-semibold">Growth Systems</span>.
+              We specialize in engineering robust <span className="text-slate-900 font-semibold">Digital Products</span> and intelligent <span className="text-orange-600 font-semibold">AI & Automation</span> workflows.
             </p>
           </div>
 
@@ -232,16 +190,6 @@ export default function ServicesSection({ onStartProject }: ServicesSectionProps
               }`}
             >
               AI & Automation
-            </button>
-            <button
-              onClick={() => setActiveTab("growth")}
-              className={`px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap shrink-0 transition-all ${
-                activeTab === "growth"
-                  ? "bg-emerald-600 text-white shadow-sm"
-                  : "text-slate-600 hover:text-slate-950"
-              }`}
-            >
-              Growth Systems
             </button>
           </div>
         </div>

@@ -51,9 +51,6 @@ export default function Footer({ onStartProject, onOpenDemo }: FooterProps = {})
               <Link href="/team" className="hover:text-slate-950 transition-colors">
                 Team
               </Link>
-              <Link href="/contact" className="hover:text-slate-950 transition-colors">
-                Contact
-              </Link>
             </div>
 
             <a

@@ -5,7 +5,6 @@ import {
   Navbar,
   ProcessSection,
   Footer,
-  FloatingWhatsAppButton,
   ProjectModal,
 } from "@/frontend";
 
@@ -31,8 +30,6 @@ export default function ProcessPage() {
       {/* Interactive Project Intake Modal */}
       <ProjectModal isOpen={isProjectModalOpen} onClose={closeProjectModal} />
 
-      {/* Floating Instant WhatsApp Button */}
-      <FloatingWhatsAppButton />
     </div>
   );
 }

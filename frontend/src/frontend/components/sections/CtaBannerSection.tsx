@@ -44,24 +44,16 @@ export default function CtaBannerSection({ onStartProject }: CtaBannerSectionPro
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <button
-              onClick={() => {
-                if (onStartProject) onStartProject();
-                else scrollToContact();
-              }}
+
+            <a
+              href={`https://wa.me/916305081722?text=${encodeURIComponent("Hi HYTHRIX, I would like to discuss a project.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 sm:py-3 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 hover:from-orange-500 hover:to-amber-400 shadow-lg shadow-orange-500/20 transition-all hover:-translate-y-0.5"
             >
-              <span>Start a Project</span>
+              <span>Contact Us</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-
-            <button
-              onClick={scrollToContact}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 sm:py-3 rounded-full text-sm font-semibold text-slate-200 hover:text-white bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.1] transition-all"
-            >
-              <MessageSquare className="w-3.5 h-3.5 text-orange-400" />
-              <span>Talk to HYTHRIX</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>

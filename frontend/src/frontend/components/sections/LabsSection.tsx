@@ -55,13 +55,15 @@ export default function LabsSection({ onStartProject }: LabsSectionProps) {
 
         {/* Action CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button
-            onClick={onStartProject}
+          <a
+            href={`https://wa.me/916305081722?text=${encodeURIComponent("Hi HYTHRIX, I would like to discuss a project.")}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 hover:from-orange-500 hover:to-amber-400 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/35 transition-all duration-200"
           >
-            <span>Start a Project With Us</span>
+            <span>Contact Us</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </a>
 
           <Link
             href="/services"
