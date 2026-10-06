@@ -24,13 +24,22 @@ interface TeamSectionProps {
 export default function TeamSection({ onStartProject }: TeamSectionProps) {
   const teamMembers = [
     {
-      name: "N Hyndhava Mahesh",
-      initials: "NH",
+      name: "Y Sruthika Reddy",
+      initials: "YS",
       role: "CEO",
       badgeColor: "text-orange-700 bg-orange-50 border-orange-200/80",
       accentGlow: "from-orange-500/20 via-orange-500/5 to-transparent",
       bio: "Leads business strategy, partnerships, business development, client acquisition, and the overall direction of HYTHRIX. Focused on turning business challenges into practical digital products, AI automation, and technology solutions.",
-      linkedin: "https://www.linkedin.com/in/hyndhava-mahesh-30894a27/",
+      linkedin: "https://www.linkedin.com/in/sruthika-reddy-yedulla-023316321/",
+    },
+    {
+      name: "N Hyndhava Mahesh",
+      initials: "NH",
+      role: "CTO",
+      badgeColor: "text-blue-700 bg-blue-50 border-blue-200/80",
+      accentGlow: "from-blue-500/20 via-blue-500/5 to-transparent",
+      bio: "Leads technology and product development at HYTHRIX, with a focus on web development, AI, automation, backend systems, APIs, and technical architecture.",
+      linkedin: "https://www.linkedin.com/in/hyndhava-mahesh-30894a27a/",
     },
     {
       name: "V Thrishith Reddy",
@@ -40,15 +49,6 @@ export default function TeamSection({ onStartProject }: TeamSectionProps) {
       accentGlow: "from-amber-500/20 via-amber-500/5 to-transparent",
       bio: "Leads operations, project delivery, client coordination, internal processes, growth initiatives, and team management. Focused on ensuring smooth execution and delivering projects efficiently.",
       linkedin: "https://www.linkedin.com/in/thrishith-reddy-vootkur-b03997381/",
-    },
-    {
-      name: "Y Sruthika Reddy",
-      initials: "YS",
-      role: "CTO",
-      badgeColor: "text-blue-700 bg-blue-50 border-blue-200/80",
-      accentGlow: "from-blue-500/20 via-blue-500/5 to-transparent",
-      bio: "Leads technology and product development at HYTHRIX, with a focus on web development, AI, automation, backend systems, APIs, and technical architecture.",
-      linkedin: "https://www.linkedin.com/in/sruthika-reddy-yedulla-023316321/",
     },
   ];
 

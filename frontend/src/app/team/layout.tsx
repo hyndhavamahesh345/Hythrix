@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Leadership Team | HYTHRIX",
   description:
-    "Meet the leadership team behind HYTHRIX: N Hyndhava Mahesh (CEO), V Thrishith Reddy (COO), and Y Sruthika Reddy (CTO).",
+    "Meet the leadership team behind HYTHRIX: Y Sruthika Reddy (CEO), N Hyndhava Mahesh (CTO), and V Thrishith Reddy (COO).",
 };
 
 export default function TeamLayout({
