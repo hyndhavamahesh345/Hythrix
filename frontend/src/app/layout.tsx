@@ -10,15 +10,18 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "HYTHRIX | Build. Automate. Grow.",
   description:
-    "HYTHRIX builds digital products, AI-powered systems, business automation and growth solutions for modern businesses.",
+    "HYTHRIX builds digital products, AI voice agents, autonomous systems, business automation and growth solutions for modern businesses.",
   keywords: [
     "HYTHRIX",
     "digital products",
+    "AI voice agents",
+    "conversational voice AI",
     "AI solutions",
     "business automation",
     "growth systems",
     "web development",
     "AI agents",
+    "autonomous phone agents",
     "technology agency",
     "BUILD AUTOMATE GROW",
     "Next.js development",
@@ -30,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "HYTHRIX | Build. Automate. Grow.",
     description:
-      "HYTHRIX builds digital products, AI-powered systems, business automation and growth solutions for modern businesses.",
+      "HYTHRIX builds digital products, AI voice agents, autonomous systems, business automation and growth solutions for modern businesses.",
     url: "https://hythrix.com",
     siteName: "HYTHRIX",
     images: [

@@ -70,8 +70,13 @@ export default function Hero({ onStartProject }: HeroProps) {
       accentColor: "from-orange-500 to-amber-500",
       textColor: "text-orange-600",
       badgeBg: "bg-orange-50 border-orange-200 text-orange-700",
-      summary: "AI assistants, automated lead qualification, WhatsApp messaging, and CRM synchronization.",
+      summary: "Conversational AI voice agents, intelligent assistants, lead qualification, and automated CRM workflows.",
       capabilities: [
+        {
+          label: "AI Voice Agents & Telephony",
+          description: "Sub-second conversational voice calling for 24/7 inbound qualification and outbound follow-ups.",
+          status: "Sub-Second Latency",
+        },
         {
           label: "AI Assistants & Knowledge Bases",
           description: "Intelligent assistants trained on your documents to answer customer questions.",

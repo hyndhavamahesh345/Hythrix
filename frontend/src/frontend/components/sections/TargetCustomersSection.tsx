@@ -20,10 +20,10 @@ export default function TargetCustomersSection() {
     },
     {
       title: "Real Estate Developers",
-      focus: "High-speed property showcases, lead automation, and WhatsApp dispatch.",
+      focus: "High-speed property showcases, AI voice calling agents, and WhatsApp dispatch.",
       icon: Building2,
       accent: "text-orange-600 bg-orange-50 border-orange-200",
-      capabilities: ["Interactive Property Portals", "Automated Inbound Qualification", "Omnichannel Lead Nurturing"],
+      capabilities: ["Interactive Property Portals", "24/7 AI Voice & Inbound Qualification", "Omnichannel Lead Nurturing"],
     },
     {
       title: "Education & Academies",

@@ -8,6 +8,7 @@ import {
   Database,
   Bot,
   Zap,
+  PhoneCall,
   ArrowRight,
   CheckCircle2,
 } from "lucide-react";
@@ -80,6 +81,25 @@ export default function ServicesSection({ onStartProject }: ServicesSectionProps
     },
 
     // 2. AI & Automation (Flagship Priority)
+    {
+      category: "ai-automation",
+      categoryName: "AI & Automation",
+      badge: "FLAGSHIP CAPABILITY",
+      pillar: "AUTOMATE",
+      title: "AI Voice Agents & Autonomous Telephony",
+      description:
+        "Sub-second latency voice AI agents that engage prospects, answer phone inquiries naturally, perform automated outbound follow-ups, and book qualified meetings directly into your sales calendar 24/7.",
+      icon: PhoneCall,
+      accentBorder: "border-rose-200 hover:border-rose-400",
+      tagColor: "text-rose-700 bg-rose-50 border-rose-200",
+      capabilities: [
+        "Natural Human-Like Inbound & Outbound Calling",
+        "Sub-Second Latency & Real-Time Interruption Handling",
+        "Direct Calendar Scheduling & Live CRM Sync",
+        "Call Transcripts, Sentiment & Compliance Logging",
+      ],
+      technologies: ["ElevenLabs", "Vapi / Retell AI", "Twilio", "WebRTC", "OpenAI / Claude"],
+    },
     {
       category: "ai-automation",
       categoryName: "AI & Automation",

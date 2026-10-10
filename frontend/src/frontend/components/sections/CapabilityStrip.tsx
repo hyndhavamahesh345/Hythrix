@@ -3,6 +3,7 @@
 export default function CapabilityStrip() {
   const capabilities = [
     { label: "CUSTOM WEB APPLICATIONS", dot: true },
+    { label: "AI VOICE AGENTS & TELEPHONY", dot: true },
     { label: "AI ASSISTANTS & AUTOMATION", dot: true },
     { label: "WORKFLOW AUTOMATION", dot: true },
     { label: "HIGH-CONVERTING WEBSITES", dot: true },

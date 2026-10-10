@@ -189,6 +189,7 @@ export default function ProjectModal({ isOpen, onClose }: ProjectModalProps) {
                   >
                     <option value="Website">Website</option>
                     <option value="Web Application">Web Application</option>
+                    <option value="AI Voice Agents">AI Voice Agents & Calling</option>
                     <option value="AI Solution">AI Solution</option>
                     <option value="Automation">Automation</option>
                     <option value="Lead Generation">Lead Generation</option>

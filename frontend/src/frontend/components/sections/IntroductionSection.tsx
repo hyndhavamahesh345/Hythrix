@@ -41,6 +41,7 @@ export default function IntroductionSection({ onStartProject }: IntroductionSect
       badgeColor: "bg-orange-50 text-orange-700 border-orange-200",
       accentBar: "bg-gradient-to-r from-orange-500 to-amber-500",
       items: [
+        "AI Voice Agents (Inbound & Outbound Calling)",
         "Custom AI Assistants & Automation",
         "WhatsApp Business Automation",
         "Intelligent Lead Qualification",
