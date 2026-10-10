@@ -29,12 +29,12 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "HYTHRIX" }],
   creator: "HYTHRIX",
-  metadataBase: new URL("https://hythrix.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://hythrix.vercel.app"),
   openGraph: {
     title: "HYTHRIX | Build. Automate. Grow.",
     description:
       "HYTHRIX builds digital products, AI voice agents, autonomous systems, business automation and growth solutions for modern businesses.",
-    url: "https://hythrix.com",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://hythrix.vercel.app",
     siteName: "HYTHRIX",
     images: [
       {
